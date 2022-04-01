@@ -4,24 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/style-cacaufresh.css">
+    <title>Home</title>
+    <link rel="stylesheet" href="./css/style.css">
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript"  src="./js/main.js"></script>
+
+
 </head>
 <body>
-    <div class="header">
+    <header id="header" class="header">
         <div class="container">
             <img id="logo_1" src="./imgs/logo_cacau_fresh.png">
             <ul class="navbar">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Sobre Nós</a></li>
-                <li><a href="#">Serviços</a></li>
-                <li><a href="#">Equipe</a></li>
-                <li><a href="#">Simulador</a></li>
+                <li><a class="link_home" href="#sec_home">Home</a></li>
+                <li><a class="link_sobre" href="#sec_sobre">Sobre Nós</a></li>
+                <li><a class="link_serv" href="#">Serviços</a></li>
+                <li><a class="link_team" href="#">Equipe</a></li>
+                <li><a class="link_sim" href="#">Simulador</a></li>
             </ul>
 
             <button class="login">Login</button>
 
         </div>
-    </div>
+    </header>
+    
+    <section id="sec_home">
+        <div id="div_home">
+            <div class="home_cont">
+            <p>A solução que precisa na sua <b>Plantação de Cacau</b></p>
+            <img src="./imgs/cacau_icone.png">
+        </div>
+        </div>
+    </section>
+
+    <section id="sec_sobre">
+        <div id="div_sobre">
+
+        </div>
+    </section>
 </body>
 </html>
