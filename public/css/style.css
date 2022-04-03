@@ -75,7 +75,7 @@ a{
 
 #div_home{
     height: 100vh;
-    width: 100vw;
+    width: 98.5vw;
     background: linear-gradient(90deg, #52200b 0%, #862c06 100%);      
     display: flex;
     justify-content: center;
@@ -93,14 +93,57 @@ a{
     width: 40%;
 }
 
-
-#div_sobre{
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-}
-
 #div_home img{
     width: 24%;
     float: right;
+}
+
+/* Configuração da seção sobre */
+
+#div_sobre{
+    height: 100vh;
+    width: 98.5vw;
+    display: flex;
+}
+
+#sobre_cont{
+    width: 100%;
+    height: 100%;
+    color: #5D1F14 ;
+}
+
+#div_titulo{
+    height: 40px;
+    width: 39%;
+}
+
+#div_titulo h1{
+    margin-top: 18vh;
+    margin-left:30%;
+    font-size: 3em;
+}
+
+#sobre_text{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5%;
+}
+
+#sobre_text img{
+    width: 20%;
+    height: auto;
+}
+
+#sobre_text p{
+    width: 35%;
+    font-weight: 600;
+    font-size: 1.3em;
+}
+
+/* Configuração da seção equipe */
+
+#div_equipe{
+    height: 100vh;
+    width: 98.5vw;
+    display: flex;
 }
