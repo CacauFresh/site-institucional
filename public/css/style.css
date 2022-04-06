@@ -4,6 +4,7 @@ body {
     padding: 0%;
     margin: 0%;
     font-family: 'Poppins', sans-serif;
+    background-color: #ececec;
 }
 
 html{
@@ -19,14 +20,14 @@ html{
 .header {
     background-color: #EBFFE1;
     width: 100vw;
-    height: 16vh;
+    height: 13vh;
     display: flex;
     align-items: center;    
     position: fixed;
     z-index: 999;
 }
 #logo_1 {
-    width: 19%;
+    width: 15%;
     height: auto;
     left: 3%;
     top: -7%;
@@ -193,5 +194,48 @@ a{
 
 .span_nome_fabiano {
     margin-left: 14%; 
+}
+
+/* Configuração da seção serviços */
+
+#div_serv{
+    height: 100vh;
+    width: 98.5vw;
+    display: flex;
+}
+
+#serv_cont{
+    height: 100vh;
+    width: 98.5vw;
+    display: flex;
+    align-items: center;
+}
+
+#serv_cont h1{
+    margin: 20vh 0 0 12%;
+    height: 11%;
+    font-size: 3em;
+    width: 3%;
+    align-self: flex-start;
+    color: #5D1F14 ;
+}
+
+.box_serv{
+    margin: 14% 6% 0 0 ;
+    background: linear-gradient(90deg, #52200b 0%, #862c06 100%);      
+    width: 20%;
+    height: 55%;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #ececec;
+    padding: 10px;
+}
+
+#div_serv img{
+    height: auto;
+    width: 30%;
 }
 
