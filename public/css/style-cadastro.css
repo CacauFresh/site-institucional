@@ -1,0 +1,115 @@
+body {
+    background-image: url('https://media.discordapp.net/attachments/955581143921618966/958490117163597854/cacau-793125286.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+}
+
+.caixa_cadastro {
+    background-color: #4e5a5286;
+    width: 60%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 2%;
+    border: 6px solid rgba(66, 4, 4, 0.76) ;
+    border-radius: 50px;
+    box-shadow: #cccccc 5px 5px 5px;
+    
+}
+
+form {
+    display: flex;
+    font-size: 1.3em;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 50vh;
+}
+
+.figure2 {
+    
+    width: 30%;
+    margin-top: -10%;
+    margin-left: 32%; 
+}
+
+ input {
+    width: 280px;
+    margin-top: 5%;
+    height: 35px;
+    outline: 3px solid ;
+    border: 0;
+    padding: 2.5px;
+    border-radius: 25px;
+    color: #2e0000;
+    padding-left: 10px;
+    
+}
+label {
+    margin-top: 20px;
+    
+    color:white;
+    margin-left: 4.5%;
+    display: block;
+    
+}
+
+.tfot {
+    position:absolute;
+    bottom: 100px;
+    font-size: 23px;
+    top: 75%;
+}
+
+a {
+    text-decoration: none;
+    color: brown;
+    font-weight: bold;
+}
+
+button {
+    width: 250px;
+    height: 35px;
+    background-color: #044d01;
+    color: #ffd7d7;
+    border-radius: 13px 15px;
+    cursor: pointer;
+    border: 0;
+    transition: 0.5s;
+    font-weight: bold;
+    margin-left: -53%;
+    margin-top: 15%;
+}
+
+button:hover {
+    background-color: #2e0000;
+    color: white;
+    transition: 0.5s;
+    
+}
+
+
+p {
+    color: white;
+    margin-top: 5%;   
+}
+
+.caixa1{
+    width: 40%;
+    margin-bottom: 35%;
+}
+
+.caixa2{
+    width: 40%;
+    
+}
+
+.pai{
+    display: flex;
+    
+}
