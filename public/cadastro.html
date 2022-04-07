@@ -1,39 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cacau Fresh | Cadastro</title>
-    <link rel="stylesheet" href="./css/style-login.css">
+    <link rel="stylesheet" href="./css/style-cadastro.css">
 </head>
+
 <body>
-    <div class="caixalogin">
-        <div class="tit">
+    <div class="caixa_cadastro">
+        
         <img class="figure2" src="./imgs/logo_cacau_fresh.png" alt="logo da empresa">
-        </div>
+
         <form>
-            <label for="input_empresa">Nome da Empresa:</label>            
-            <input placeholder="Xpto" type="text" id="input_empresa">
-            
-            <label for="input_email">Email:</label>
-            <input placeholder="Xpto.sptech@schol.com" type="email" id="input_email">    
+            <div class="caixa1">
+                <div>
+                    <label for="input_empresa">Nome da Empresa:</label>
+                    <input placeholder="Xpto" type="text" id="input_empresa">
+                </div>
 
-            <label for="telefone_input">Telefone:</label>
-            <input placeholder="+55 (11)962257127" type="tel" id="telefone_input">
+                <div>
+                    <label for="input_email">Email:</label>
+                    <input placeholder="Xpto.sptech@schol.com" type="email" id="input_email">
+                </div>
 
-            <label for="CNPJ_input">CNPJ:</label>
-            <input placeholder="11 111 111 111" type="number" id="CNPJ_input">
+                <div>
+                    <label for="telefone_input">Telefone:</label>
+                    <input placeholder="+55 (11)962257127" type="tel" id="telefone_input">
+                </div>
 
-            <label for="senha_input">Senha:</label>
-            <input placeholder="******" type="password" id="senha_input">
+            </div>
 
-            <button type="button">Entrar</button>
+            <div class="caixa2">
+                <div>
+                    <label for="CNPJ_input">CNPJ:</label>
+                    <input placeholder="11 111 111 111" type="number" id="CNPJ_input">
+                </div>
+
+                <div>
+                    <label for="senha_input">Senha:</label>
+                    <input placeholder="******" type="password" id="senha_input">
+                </div>
+
+                <div>
+                    <label for="cep_input">CEP:</label>
+                    <input type="number" placeholder="678.234.987.30" id="cep_input">
+                </div>
+                <button>Entrar</button>
+            </div>
+
         </form>
 
-        <div class="tfot">
-            <p>Cadastro realizado?! volte ao <u><a href="login.html">Login</a></u></p>
-        </div>
+        
     </div>
 </body>
+
 </html>
