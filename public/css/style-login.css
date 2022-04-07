@@ -30,13 +30,13 @@ form {
 
 form input {
     width: 280px;
-    margin-top: 0%;
+    margin-top: 2.5%;
     height: 35px;
     outline: 3px solid ;
     border: 0;
     padding: 2.5px;
     border-radius: 25px;
-    color: #044d01;
+    color: #2e0000;
     padding-left: 10px;
     
 }
@@ -68,6 +68,7 @@ label {
     position:absolute;
     bottom: 100px;
     font-size: 23px;
+    top: 75%;
 }
 
 a {
@@ -78,7 +79,7 @@ a {
 
 button {
     position:absolute;
-    top: 130%;
+    top: 109%;
     left: 34%;
     width: 100px;
     height: 30px;
@@ -100,15 +101,27 @@ button:hover {
 
 .figure {
     width: 100%;
-    margin-bottom: 0%;
+    margin-top: 12.5%;
 }
 
-.figure2 {
-    width: 60%;
-    margin-bottom: 43%;
-    margin-left: 16%;
-}
 
 p {
     color: white;
+    
+}
+
+.caixa1{
+    width: 60%;
+    margin-left:-50%;
+    margin-bottom: 5%;
+}
+
+.caixa2{
+    width: 60%;
+    
+}
+
+.pai{
+    display: flex;
+    
 }
