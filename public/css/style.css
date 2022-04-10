@@ -5,9 +5,6 @@ body {
     margin: 0%;
     font-family: 'Poppins', sans-serif;
     background-color: #ececec;
-}
-
-html{
     scroll-behavior: smooth;
 }
 
@@ -124,6 +121,9 @@ a{
     font-size: 3em;
 }
 
+#sobre_text #equipe_foto {
+    width: 500px;
+}
 #sobre_text{
     display: flex;
     justify-content: space-around;
@@ -161,39 +161,36 @@ a{
     font-size: 3em;
 }
 
-.imagens_equipe img{
-    width: 13%;
+.imagens_equipe img {
+    width: 40%;
     height: auto;
-    margin-left: 16%;
-    border-radius: 100%;
+    border-radius: 50%;
     margin-top: 6px;
+    display: block;
 }
 
-#nomes_equipe h2 {
-    color: #5D1F14;
-    margin-left: 14%;
+.imagens_equipe{
     display: flex;
-    justify-content: space-between;
-    
-}
-.span_nome {
-    margin-left: 17%; 
-}
-
-.span_nome_will {
-    margin-left: 14%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
 }
 
-.span_nome_matheus {
-    margin-left: 16%; 
+#img_cima{
+    display: flex;
+    flex-direction: row;
 }
 
-.span_nome_gabriel {
-    margin-left: 13%; 
+#img_baixo{
+    display: flex;
+    flex-direction: row;
 }
-
-.span_nome_fabiano {
-    margin-left: 14%; 
+#caixa_foto{
+    display: flex;
+    height: 100%;
+    width: 100%;
 }
 
 /* Configuração da seção serviços */
@@ -239,3 +236,16 @@ a{
     width: 30%;
 }
 
+#div_cotacao {
+    background-image: url(../imgs/textura\ -\ cotacao.jpeg);
+    background-size: cover;
+    z-index: -1;
+    width: auto;
+    height: 70vh;
+}
+
+#cotacao_opacidade {
+    width: auto;
+    height: 100%;
+    background-color: #ffffff79;
+}
