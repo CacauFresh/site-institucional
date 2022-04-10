@@ -5,32 +5,42 @@ body {
     justify-content: center;
     margin: 0;
     padding: 0;
+    height: 100vh;
+    width: 100%;
 }
 
-.caixalogin {
+.caixa_cadastro {
     background-color: #4e5a5286;
-    width: 40%;
-    height: 75vh;
+    width: 60%;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 5%;
-    align-items: center;
+    margin-top: 2%;
     border: 6px solid rgba(66, 4, 4, 0.76) ;
     border-radius: 50px;
     box-shadow: #cccccc 5px 5px 5px;
+    
 }
 
 form {
     display: flex;
     font-size: 1.3em;
-    flex-direction: column;
-    position: absolute;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 50vh;
 }
 
-form input {
+.figure2 {
+    
+    width: 30%;
+    margin-top: -10%;
+    margin-left: 32%; 
+}
+
+ input {
     width: 280px;
-    margin-top: 2.5%;
+    margin-top: 5%;
     height: 35px;
     outline: 3px solid ;
     border: 0;
@@ -42,25 +52,10 @@ form input {
 }
 label {
     margin-top: 20px;
-    margin-bottom: 3px;
+    
     color:white;
     margin-left: 4.5%;
-    
-}
-
-.tit {
-    
     display: block;
-    margin-top: -300px;
-    
-    width: 370px;
-    border-radius: 30px;
-    color: white;
-}
-
-.tit h1 {
-    margin-left: 15%;
-    margin-top: 10%;
     
 }
 
@@ -78,11 +73,8 @@ a {
 }
 
 button {
-    position:absolute;
-    top: 109%;
-    left: 34%;
-    width: 100px;
-    height: 30px;
+    width: 250px;
+    height: 35px;
     background-color: #044d01;
     color: #ffd7d7;
     border-radius: 13px 15px;
@@ -90,6 +82,8 @@ button {
     border: 0;
     transition: 0.5s;
     font-weight: bold;
+    margin-left: -53%;
+    margin-top: 15%;
 }
 
 button:hover {
@@ -99,25 +93,19 @@ button:hover {
     
 }
 
-.figure {
-    width: 100%;
-    margin-top: 12.5%;
-}
-
 
 p {
     color: white;
-    
+    margin-top: 5%;   
 }
 
 .caixa1{
-    width: 60%;
-    margin-left:-50%;
-    margin-bottom: 5%;
+    width: 40%;
+    margin-bottom: 35%;
 }
 
 .caixa2{
-    width: 60%;
+    width: 40%;
     
 }
 
