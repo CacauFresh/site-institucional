@@ -8,9 +8,10 @@ body {
     scroll-behavior: smooth;
 }
 
+
 /* Configuração do Header */
 
-.teste{
+.teste {
     background-color: black;
 }
 
@@ -19,17 +20,20 @@ body {
     width: 100vw;
     height: 13vh;
     display: flex;
-    align-items: center;    
+    align-items: center;
     position: fixed;
     z-index: 999;
 }
+
 #logo_1 {
-    width: 15%;
+    width: 12%;
+    
     height: auto;
-    left: 3%;
-    top: -7%;
+    left: 8%;
+    top: 2%;
     position: absolute;
 }
+
 .container {
     width: 80%;
     margin: 0%;
@@ -51,11 +55,12 @@ body {
     margin-left: 20%;
 }
 
-a{
+a {
     text-decoration: none;
     color: #5D1F14;
     text-shadow: #46a598 2px 2px 3px;
-}   
+}
+
 .login {
     margin-right: -20%;
     background-color: #00685A;
@@ -66,76 +71,78 @@ a{
     align-self: center;
     font-size: 16px;
     border: 0;
-    cursor: pointer;  
+    cursor: pointer;
 }
 
 /* Configuração da seção inicio */
 
-#div_home{
+#div_home {
     height: 100vh;
     width: 98.5vw;
-    background: linear-gradient(90deg, #52200b 0%, #862c06 100%);      
+    background: linear-gradient(90deg, #52200b 0%, #862c06 100%);
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.home_cont{
+
+.home_cont {
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
-#div_home p{
+#div_home p {
     color: #eeeeee;
     font-size: 2.4em;
     width: 40%;
 }
 
-#div_home img{
+#div_home img {
     width: 24%;
     float: right;
 }
 
 /* Configuração da seção sobre */
 
-#div_sobre{
+#div_sobre {
     height: 100vh;
     width: 98.5vw;
     display: flex;
 }
 
-#sobre_cont{
+#sobre_cont {
     width: 100%;
     height: 100%;
-    color: #5D1F14 ;
+    color: #5D1F14;
 }
 
-#div_titulo{
+#div_titulo {
     height: 40px;
     width: 39%;
 }
 
-#div_titulo h1{
+#div_titulo h1 {
     margin-top: 18vh;
-    margin-left:30%;
+    margin-left: 30%;
     font-size: 3em;
 }
 
 #sobre_text #equipe_foto {
     width: 500px;
 }
-#sobre_text{
+
+#sobre_text {
     display: flex;
     justify-content: space-around;
     margin-top: 5%;
 }
 
-#sobre_text img{
+#sobre_text img {
     width: 20%;
     height: auto;
 }
 
-#sobre_text p{
+#sobre_text p {
     width: 35%;
     font-weight: 600;
     font-size: 1.3em;
@@ -143,21 +150,21 @@ a{
 
 /* Configuração da seção equipe */
 
-#div_equipe{
+#div_equipe {
     height: 100vh;
     width: 98.5vw;
     display: flex;
 }
 
-#equipe_cont{
+#equipe_cont {
     width: 100%;
     height: 100%;
-    color: #5D1F14 ;
+    color: #5D1F14;
 }
 
-#equipe_titulo h1{
+#equipe_titulo h1 {
     margin-top: 7vh;
-    margin-left:12%;
+    margin-left: 12%;
     font-size: 3em;
 }
 
@@ -167,9 +174,10 @@ a{
     border-radius: 50%;
     margin-top: 6px;
     display: block;
+    margin-bottom: 2%;
 }
 
-.imagens_equipe{
+.imagens_equipe {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -178,16 +186,21 @@ a{
     font-size: large;
 }
 
-#img_cima{
+#imagem_breno {
+    width: 35%;
+}
+
+#img_cima {
     display: flex;
     flex-direction: row;
 }
 
-#img_baixo{
+#img_baixo {
     display: flex;
     flex-direction: row;
 }
-#caixa_foto{
+
+#caixa_foto {
     display: flex;
     height: 100%;
     width: 100%;
@@ -195,31 +208,31 @@ a{
 
 /* Configuração da seção serviços */
 
-#div_serv{
+#div_serv {
     height: 100vh;
     width: 98.5vw;
     display: flex;
 }
 
-#serv_cont{
+#serv_cont {
     height: 100vh;
     width: 98.5vw;
     display: flex;
     align-items: center;
 }
 
-#serv_cont h1{
-    margin: 20vh 0 0 12%;
+#serv_cont h1 {
+    margin: 16vh 0 0 12%;
     height: 11%;
     font-size: 3em;
     width: 3%;
     align-self: flex-start;
-    color: #5D1F14 ;
+    color: #5D1F14;
 }
 
-.box_serv{
-    margin: 14% 6% 0 0 ;
-    background: linear-gradient(90deg, #52200b 0%, #862c06 100%);      
+.box_serv {
+    margin: 8% 6% 0 0;
+    background: linear-gradient(90deg, #52200b 0%, #862c06 100%);
     width: 20%;
     height: 55%;
     border-radius: 14px;
@@ -231,9 +244,13 @@ a{
     padding: 10px;
 }
 
-#div_serv img{
+#div_serv img {
     height: auto;
     width: 30%;
+}
+
+#div_serv p{
+    text-align: center;
 }
 
 #div_cotacao {
@@ -241,11 +258,70 @@ a{
     background-size: cover;
     z-index: -1;
     width: auto;
-    height: 70vh;
+    height: 100vh;
+
 }
 
 #cotacao_opacidade {
+    padding-top: 5%;
+
     width: auto;
-    height: 100%;
-    background-color: #ffffff79;
+    height: 90%;
+    background-color: #f6fff2da;
+
+}
+
+#cotacao_cont {
+    margin-top: 13vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#h1_cot {
+    height: 11%;
+    font-size: 3em;
+    width: auto;
+    align-self: flex-start;
+    color: #5D1F14;
+    align-self: center;
+}
+
+#cotacao_cont p {
+    font-size: 2em;
+    width: 80%;
+    color: #5D1F14;
+    display: flex;
+    text-align: center;
+    font-weight: 900;
+}
+
+#botao_cot {
+    background-color: #46a598;
+    font-size: x-large;
+    border: 0;
+    color: white;
+    border-radius: 15px;
+    cursor: pointer;
+    min-width: 140px;
+    min-height: 52px;
+    margin-top: 40px;
+}
+
+#rodape_cont {
+    background-color: #52200b;
+    width: auto;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+#logo_rodape {
+    width: 16%;
+    margin-top: 1%;
+    padding: 0%;
+    margin-bottom: 1%;
 }
