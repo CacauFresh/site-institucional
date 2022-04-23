@@ -60,6 +60,29 @@
         document.getElementById("logo_1").src="./imgs/logo-cacau-fresh_verde.png";
         header.style.transition = "0.2s";
     }
+
+    if ($(document).scrollTop() >= $("#sec_serv").position().top){
+        $('.header').css('background-color', '#713708');
+        $('.link_serv').css('text-decoration','underline');
+        $('.link_serv').css('tex-decoration-color','#EBFFE1'); 
+
+        $('.link_home').css('color','#EBFFE1');        
+        $('.link_team').css('color','#EBFFE1');        
+        $('.link_sobre').css('color','#EBFFE1');        
+        $('.link_sim').css('color','#EBFFE1');        
+        $('.link_serv').css('color','#EBFFE1');  
+
+        $('.link_home').css('text-decoration','none');
+        $('.link_sobre').css('text-decoration','none');
+        $('.link_team').css('text-decoration','none');
+        $('.link_sim').css('text-decoration','none');
+    
+        document.getElementById("logo_1").src="./imgs/logo-cacau-fresh_verde.png";
+        header.style.transition = "0.2s";
+    }
+
+
+    
     
     if ($(document).scrollTop() >= $("#sec_cotacao").position().top){
         $('.header').css('background-color', '#713708');
