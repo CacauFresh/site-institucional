@@ -50,6 +50,7 @@ form {
     padding-left: 10px;
     
 }
+
 label {
     margin-top: 20px;
     
@@ -113,4 +114,43 @@ p {
 .pai{
     display: flex;
     
+}
+
+#span_empresa {
+    color: rgb(192, 16, 16);
+    margin-left: 3%;
+    font-size: large;
+    font-weight: bold;
+
+}
+
+#span_estado {
+    color: rgb(192, 16, 16);
+    margin-left: 3%;
+    font-size: large;
+    font-weight: bold;
+
+}
+
+#span_cep {
+    color: rgb(192, 16, 16);
+    margin-left: 3%;
+    font-size: large;
+    font-weight: bold;
+
+}
+
+#span_cnpj {
+    color: rgb(192, 16, 16);
+    margin-left: 3%;
+    font-size: large;
+    font-weight: bold;
+
+}
+#span_telefone {
+    color: rgb(192, 16, 16);
+    margin-left: 3%;
+    font-size: large;
+    font-weight: bold;
+
 }

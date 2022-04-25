@@ -11,7 +11,7 @@
 
 <body>
     <div class="caixa_cadastro">
-        
+
         <img class="figure2" src="./imgs/logo-cacau-fresh_marrom.png" alt="logo da empresa">
 
         <form>
@@ -25,11 +25,13 @@
                 <div>
                     <label for="input_estado">Estado:</label>
                     <input placeholder="SP" type="text" id="input_estado">
+                    <span id="span_estado"></span>
                 </div>
 
                 <div>
                     <label for="telefone_input">Telefone:</label>
                     <input placeholder="+55 (11)962257127" type="number" id="telefone_input">
+                    <span id="span_telefone"></span>
                 </div>
 
             </div>
@@ -38,33 +40,83 @@
                 <div>
                     <label for="CNPJ_input">CNPJ:</label>
                     <input placeholder="11 111 111 111" type="number" id="CNPJ_input">
+                    <span id="span_cnpj"></span>
                 </div>
 
                 <div>
                     <label for="rua_input">Rua:</label>
                     <input placeholder="rua xpto" id="rua_input">
+                    <span id="span_rua"></span>
                 </div>
 
                 <div>
                     <label for="cep_input">CEP:</label>
                     <input type="number" placeholder="678.234.987.30" id="cep_input">
+                    <span id="span_cep"></span>
                 </div>
                 <button type="button" onclick="cadastrar_empresa()">Cadastrar</button>
             </div>
 
         </form>
 
-        
+
     </div>
 </body>
 
 </html>
 
 <script>
-    function cadastrar_empresa(){
+    function cadastrar_empresa() {
+
         var nomeVar = input_empresa.value
         var estadoVar = input_estado.value
-        var ruaVar =  rua_input.value
+        var ruaVar = rua_input.value
+        var telefoneVar = telefone_input.value
+        var CEPVar = cep_input.value
+        var CNPJVar = CNPJ_input.value
+
+        if (nomeVar.length < 4) {
+            input_empresa.style.borderColor = 'blue';
+            span_empresa.innerHTML = "Coloque um nome válido";
+        }
+        else {
+            span_empresa.innerHTML = ""
+        }
+
+        if (estadoVar.length > 2 || estadoVar < 2) {
+            span_estado.innerHTML = "Coloque um estado válido";
+            input_estado.style.borderColor = "red";
+        }
+        else {
+            span_estado.innerHTML = ""
+        }
+
+        if (telefoneVar.length < 13) {
+            span_telefone.innerHTML = "Coloque um telefone válido";
+            telefone_input.style.borderColor = "red";
+        }
+        else {
+            span_telefone.innerHTML = ""
+        }
+
+        if (CEPVar.length < 8 || CEPVar > 8) {
+            span_cep.innerHTML = "Coloque um Cep válido";
+            cep_input.style.borderColor = "red";
+        }
+        else {
+            span_cep.innerHTML = ""
+        }
+
+        if (CNPJVar.length < 8 || CNPJVar > 8) {
+            span_cnpj.innerHTML = "Coloque um CNPJ válido";
+            cnpj_input.style.borderColor = "red";
+        }
+        else {
+            span_cnpj.innerHTML = ""
+        }
+        var nomeVar = input_empresa.value
+        var estadoVar = input_estado.value
+        var ruaVar = rua_input.value
         var telefoneVar = telefone_input.value
         var CEPVar = cep_input.value
         var CNPJVar = CNPJ_input.value
@@ -83,7 +135,7 @@
                 telefoneServer: telefoneVar,
                 CEPServer: CEPVar,
                 CNPJServer: CNPJVar
-                
+
             })
         }).then(function (resposta) {
 
@@ -97,11 +149,13 @@
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
-            console.log  ( `#ERRO: ${resposta} `);
+            console.log(`#ERRO: ${resposta} `);
 
         });
 
         return false;
+
+        
     }
-    
+
 </script>
