@@ -8,7 +8,7 @@ CREATE TABLE Empresa (
   CEP CHAR(9),
   rua VARCHAR(100),
   CNPJ CHAR(18),
-         telefone VARCHAR(20),
+  telefone VARCHAR(20),
   estado CHAR(45));
   
   CREATE TABLE usuario (
@@ -18,12 +18,19 @@ CREATE TABLE Empresa (
   senha VARCHAR(20) ,
   fkEmpresa INT ,
   FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa));
+  
+create table setor (
+idSetor int primary key auto_increment,
+nome_setor varchar(50),
+fkEmpresa int,
+foreign key (fkEmpresa) references empresa(idEmpresa)
+);
 
 create table Sensor (
 idSensor int primary key auto_increment,
-setor varchar(50),
-fkCliente int,
-foreign key (fkCliente) references cliente(idCliente)
+sensor varchar(50),
+fkSetor int,
+foreign key (fkSetor) references setor(idSetor)
 );
 
 create table registro (
