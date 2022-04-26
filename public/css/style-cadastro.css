@@ -12,11 +12,11 @@ body {
 .caixa_cadastro {
     background-color: #4e5a5286;
     width: 60%;
-    height: 90vh;
+    height: 92vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 2%;
+    margin-top: 1%;
     border: 6px solid rgba(66, 4, 4, 0.76) ;
     border-radius: 50px;
     box-shadow: #cccccc 5px 5px 5px;
@@ -84,7 +84,7 @@ button {
     transition: 0.5s;
     font-weight: bold;
     margin-left: -53%;
-    margin-top: 15%;
+    margin-top: 10%;
 }
 
 button:hover {

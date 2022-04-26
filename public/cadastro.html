@@ -51,7 +51,7 @@
 
                 <div>
                     <label for="cep_input">CEP:</label>
-                    <input type="number" placeholder="678.234.987.30" id="cep_input">
+                    <input type="number" placeholder="03080-130" id="cep_input">
                     <span id="span_cep"></span>
                 </div>
                 <button type="button" onclick="cadastrar_empresa()">Cadastrar</button>
@@ -74,52 +74,59 @@
         var telefoneVar = telefone_input.value
         var CEPVar = cep_input.value
         var CNPJVar = CNPJ_input.value
+        var validacoes = 0
 
         if (nomeVar.length < 4) {
-            input_empresa.style.borderColor = 'blue';
+            input_empresa.style.outlineColor = 'red';
             span_empresa.innerHTML = "Coloque um nome válido";
         }
         else {
             span_empresa.innerHTML = ""
+            input_empresa.style.outlineColor = '#2e0000'
+            validacoes ++
         }
 
         if (estadoVar.length > 2 || estadoVar < 2) {
             span_estado.innerHTML = "Coloque um estado válido";
-            input_estado.style.borderColor = "red";
+            input_estado.style.outlineColor = 'red';
         }
         else {
             span_estado.innerHTML = ""
+            input_estado.style.outlineColor = '#2e0000'
+            validacoes ++
         }
 
         if (telefoneVar.length < 13) {
             span_telefone.innerHTML = "Coloque um telefone válido";
-            telefone_input.style.borderColor = "red";
+            telefone_input.style.outlineColor = 'red';
         }
         else {
             span_telefone.innerHTML = ""
+            telefone_input.style.outlineColor = '#2e0000'
+            validacoes ++
         }
 
-        if (CEPVar.length < 8 || CEPVar > 8) {
+        if (CEPVar.length < 8 || CEPVar.length > 8) {
             span_cep.innerHTML = "Coloque um Cep válido";
-            cep_input.style.borderColor = "red";
+            cep_input.style.outlineColor = 'red';
         }
         else {
             span_cep.innerHTML = ""
+            cep_input.style.outlineColor = '#2e0000'
+            validacoes ++
         }
 
-        if (CNPJVar.length < 8 || CNPJVar > 8) {
+        if (CNPJVar.length < 14 || CNPJVar.length > 14) {
             span_cnpj.innerHTML = "Coloque um CNPJ válido";
-            cnpj_input.style.borderColor = "red";
+            CNPJ_input.style.outlineColor = 'red';
         }
         else {
             span_cnpj.innerHTML = ""
+            CNPJ_input.style.outlineColor = '#2e0000'
+            validacoes ++
         }
-        var nomeVar = input_empresa.value
-        var estadoVar = input_estado.value
-        var ruaVar = rua_input.value
-        var telefoneVar = telefone_input.value
-        var CEPVar = cep_input.value
-        var CNPJVar = CNPJ_input.value
+
+        if (validacoes == 5) {
 
         fetch("/usuarios/cadastrar_empresa", {
             method: "POST",
@@ -143,6 +150,7 @@
 
             if (resposta.ok) {
 
+                alert('Cadastro Realizado')
                 window.location = "login.html";
 
             } else {
@@ -157,5 +165,6 @@
 
         
     }
+}
 
 </script>
