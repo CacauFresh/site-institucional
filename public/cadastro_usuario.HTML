@@ -19,12 +19,13 @@
                 <div>
                     <label for="input_nome_usuario">Nome do Usuário:</label>
                     <input placeholder="Xpto" type="text" id="input_nome_usuario">
-                    <span id="span_uruario"></span>
+                    <span id="span_usuario"></span>
                 </div>
 
                 <div>
                     <label for="input_email">Email:</label>
                     <input placeholder="xpto@gmail.com" type="text" id="input_email">
+                    <span id="span_email"></span>
                 </div>
 
 
@@ -33,12 +34,14 @@
             <div class="caixa2">
                 <div>
                     <label for="senha_input">Senha:</label>
-                    <input placeholder="ABCdef1*" type="password" id="senha_input">
+                    <input placeholder="ABCdef1*" type="password" id="input_senha">
+                    <span id="span_senha"></span>
                 </div>
 
                 <div>
                     <label for="confirmar_senha_input">Confirmar Senha:</label>
-                    <input placeholder="ABCdef1*" type="password" id="confirmar_senha_input">
+                    <input placeholder="ABCdef1*" type="password" id="input_confirmar_senha">
+                    <span id="span_confirmar_senha"></span>
                 </div>
 
                 <button type="button" onclick="cadastrar_usuario()">Entrar</button>
@@ -54,14 +57,213 @@
 
 <script>
     function cadastrar_usuario(){
-        var nomeVar = input_empresa.value
-        var estadoVar = input_estado.value
-        var ruaVar =  rua_input.value
-        var telefoneVar = telefone_input.value
-        var CEPVar = cep_input.value
-        var CNPJVar = CNPJ_input.value
+        var nomeUsu = input_nome_usuario.value
+        var email = input_email.value
+        var senha =  input_senha.value
+        var confirmar_senha = input_confirmar_senha.value
+        var validacoes = 0
+        var confirmacao = email.indexOf("@")
+        var caracteres = senha.indexOf("@")>-1 || 
+                         senha.indexOf(".")>-1 ||
+                         senha.indexOf("#")>-1 ||
+                         senha.indexOf("$")>-1 ||
+                         senha.indexOf("*")>-1 ||
+                         senha.indexOf("&")>-1 
 
-        fetch("/usuarios/cadastrar_empresa", {
+        if (nomeUsu.length <3) {
+            input_nome_usuario.style.outlineColor = "red";
+            span_usuario.innerHTML = "Coloque um nome válido";
+        } else {
+            span_usuario.innerHTML = ""
+            input_nome_usuario.style.outlineColor = "#2e0000"
+            validacoes ++
+        
+        }
+
+        if  (email.length <5 ||
+             email.indexOf("@")== -1 ||
+             email.indexOf(".") < confirmacao +1 ) {
+             input_email.style.outlineColor = "red";
+             span_email.innerHTML = "Coloque um email válido";
+        }else {
+            span_email.innerHTML = ""
+            input_email.style.outlineColor = "#2e0000"
+            validacoes ++
+        }
+
+        if  (senha.length >=8 && caracteres  )  {
+            span_senha.innerHTML = ""
+            input_senha.style.outlineColor = "#2e0000"
+            validacoes ++
+          
+            } else {
+            input_senha.style.outlineColor = "red";
+            span_senha.innerHTML = "Coloque uma senha válida";
+           
+            }
+        if (confirmar_senha == senha)  {
+            span_confirmar_senha.innerHTML = ""
+            input_confirmar_senha.style.outlineColor = "#2e0000"
+            validacoes ++
+ 
+            } else {
+            input_confirmar_senha.style.outlineColor = "red";
+            span_confirmar_senha.innerHTML = "Coloque uma senha válida";
+            }
+
+
+            fetch("/usuarios/cadastrar_empresa", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeUsuServer: nomeUsuVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+                confirmar_senhaServer: confirmar_senhaVar,
+                
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+
+                window.location = "login.html";
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log  ( `#ERRO: ${resposta} `);
+
+        });
+
+        return false;
+        
+    }
+    
+</script>
+
+
+<!-- funcao com parametro -->
+
+<!-- <!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cacau Fresh | Cadastro</title>
+    <link rel="stylesheet" href="./css/style-cadastro-login.css">
+</head>
+
+<body>
+    <div class="caixa_cadastro">
+        
+        <img class="figure2" src="./imgs/logo-cacau-fresh_marrom.png" alt="logo da empresa">
+
+        <form>
+            <div class="caixa1">
+                <div>
+                    <label for="input_nome_usuario">Nome do Usuário:</label>
+                    <input placeholder="Xpto" type="text" id="input_nome_usuario">
+                    <span id="span_usuario"></span>
+                </div>
+
+                <div>
+                    <label for="input_email">Email:</label>
+                    <input placeholder="xpto@gmail.com" type="text" id="input_email">
+                    <span id="span_email"></span>
+                </div>
+
+
+            </div>
+
+            <div class="caixa2">
+                <div>
+                    <label for="senha_input">Senha:</label>
+                    <input placeholder="ABCdef1*" type="password" id="input_senha">
+                    <span id="span_senha"></span>
+                </div>
+
+                <div>
+                    <label for="confirmar_senha_input">Confirmar Senha:</label>
+                    <input placeholder="ABCdef1*" type="password" id="input_confirmar_senha">
+                    <span id="span_confirmar_senha"></span>
+                </div>
+
+                <button type="button" onclick="cadastrar_usuario()">Entrar</button>
+            </div>
+
+        </form>
+
+        
+    </div>
+</body>
+
+</html>
+
+<script>
+    function cadastrar_usuario(){
+        var nomeUsu = input_nome_usuario.value
+        var email = input_email.value
+        var senha =  input_senha.value
+        var confirmar_senha = input_confirmar_senha.value
+        var validacoes = 0
+        var confirmacao = email.indexOf("@")
+        var caracteres = senha.indexOf("@")>-1 || 
+                         senha.indexOf(".")>-1 ||
+                         senha.indexOf("#")>-1 ||
+                         senha.indexOf("$")>-1 ||
+                         senha.indexOf("*")>-1 ||
+                         senha.indexOf("&")>-1 
+
+        if (nomeUsu.length <3) {
+            input_nome_usuario.style.outlineColor = "red";
+            span_usuario.innerHTML = "Coloque um nome válido";
+        } else {
+            
+          mostra_erro(span_usuario,input_nome_usuario)
+    
+        }
+
+        if  (email.length <5 ||
+             email.indexOf("@")== -1 ||
+             email.indexOf(".") < confirmacao +1 ) {
+             input_email.style.outlineColor = "red";
+             span_email.innerHTML = "Coloque um email válido";
+        }else {
+            mostra_erro(span_email,input_email)
+        }
+
+        if  (senha.length >=8 && caracteres  )  {
+            span_senha.innerHTML = ""
+            input_senha.style.outlineColor = "#2e0000"
+            validacoes ++
+          
+            } else {
+            input_senha.style.outlineColor = "red";
+            span_senha.innerHTML = "Coloque uma senha válida";
+           
+            }
+        if (confirmar_senha == senha)  {
+            span_confirmar_senha.innerHTML = ""
+            input_confirmar_senha.style.outlineColor = "#2e0000"
+            validacoes ++
+ 
+            } else {
+            input_confirmar_senha.style.outlineColor = "red";
+            span_confirmar_senha.innerHTML = "Coloque uma senha válida";
+            }
+
+
+
+            fetch("/usuarios/cadastrar_empresa", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -94,6 +296,12 @@
         });
 
         return false;
+        
+    }
+    function mostra_erro (span,input){
+        span.innerHTML = ""
+        input.style.outlineColor = "#2e0000"
+        validacoes ++
     }
     
-</script>
+</script> -->
