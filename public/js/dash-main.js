@@ -1,5 +1,21 @@
 function tela_inicial(){
+    window.location = 'login.html'
+}
+
+function sair(){
+    sessionStorage.EMAIL_USUARIO = ''
+    sessionStorage.NOME_USUARIO = ''
+    sessionStorage.ID_USUARIO = ''
+
     window.location = 'index.html'
+}
+
+function verificarlogin(){
+    if(sessionStorage.EMAIL_USUARIO ==  '' || sessionStorage.NOME_USUARIO ==  '' || sessionStorage.ID_USUARIO == ''){
+
+        alert('Faça um login para continuar')
+        window.location = 'index.html'
+    }
 }
 
 function set_graf(){

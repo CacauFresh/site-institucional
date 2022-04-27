@@ -53,6 +53,7 @@ function entrar(req, res) {
                 function (erro) {
                     console.log(erro);
                     console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                    alert('Email ou Senha inválido')
                     res.status(500).json(erro.sqlMessage);
                 }
             );
@@ -102,7 +103,6 @@ function cadastrar_usuario(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    var idEmpresa = sessionStorage.ID_EMPRESA;
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -114,7 +114,7 @@ function cadastrar_usuario(req, res) {
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar_usuario(nome, email, senha, idEmpresa)
+        usuarioModel.cadastrar_usuario(nome, email, senha)
             .then(
                 function (resultado) {
                     res.json(resultado);

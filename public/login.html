@@ -1,48 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cacau Fresh | Login</title>
-    <link rel="stylesheet" href="./css/style-login.css" />
-    <link rel="shortcut icon" href="./imgs/favicon.ico" type="image/x-icon">
-    
-  </head>
-  <body>
-    <div class="caixalogin">
-      <div class="tit">
-        <img
-          class="figure"
-          src="./imgs/logo-cacau-fresh_marrom.png"
-          alt="logo da empresa"
-        />
-      </div>
-      <form>
-        <label for="login_input">Email:</label>
-        <input placeholder="XPTO.SP@look.com" type="email" id="login_input" />
 
-        <label for="senha_input">Senha:</label>
-        <input
-          placeholder="*****************"
-          type="password"
-          id="senha_input"
-        />
-        <button type="button">Entrar</button>
-      </form>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cacau Fresh | Login</title>
+  <link rel="stylesheet" href="./css/style-login.css" />
+  <link rel="shortcut icon" href="./imgs/favicon.ico" type="image/x-icon">
 
-      <div class="tfot">
-        <p>
-          Ainda não tem login? Faça aqui seu
-          <u><a href="cadastro.html">cadastro</a></u>
-        </p>
-      </div>
+</head>
+
+<body>
+  <div class="caixalogin">
+    <div class="tit">
+      <img class="figure" src="./imgs/logo-cacau-fresh_marrom.png" alt="logo da empresa" />
     </div>
-  </body>
+    <form>
+      <label for="login_input">Email:</label>
+      <input placeholder="XPTO.SP@look.com" type="email" id="login_input" />
+
+      <label for="senha_input">Senha:</label>
+      <input placeholder="*****************" type="password" id="senha_input" />
+      <button type="button" onclick="entrar()">Entrar</button>
+    </form>
+
+    <div class="tfot">
+      <p>
+        Ainda não tem login? Faça aqui seu
+        <u><a href="cadastro.html">cadastro</a></u>
+      </p>
+    </div>
+  </div>
+</body>
+
 </html>
 <script>
   function entrar() {
-    var emailVar = email_input.value;
+    var emailVar = login_input.value;
     var senhaVar = senha_input.value;
 
     fetch("/usuarios/autenticar", {
@@ -61,7 +56,7 @@
         if (resposta.ok) {
           console.log(resposta);
 
-          resposta.json().then((json) => {
+          resposta.json().then(json => {
             console.log(json);
             console.log(JSON.stringify(json));
 
@@ -71,15 +66,16 @@
 
             setTimeout(function () {
               window.location = "dashboard.html";
-            }, 1000); // apenas para exibir o loading
+            });
           });
+
         } else {
           console.log("Houve um erro ao tentar realizar o login!");
 
           resposta.text().then((texto) => {
             console.error(texto);
-            finalizarAguardar(texto);
           });
+          alert('Email e/ou senha inválido')
         }
       })
       .catch(function (erro) {

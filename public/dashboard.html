@@ -8,18 +8,15 @@
     <link rel="stylesheet" href="./css/dash-style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/dash-main.js"></script>
+    <link rel="shortcut icon" href="./imgs/favicon.ico" type="image/x-icon">
     <title>CacauFresh | Dashboard</title>
 </head>
 
-<body>
+<body onload="verificarlogin()">
     <!-- Header -->
     <div class="header-left">
         <img onclick="tela_inicial()" src="./imgs/icon_dash/arrow.png">
-        <img class="icon_temp" src="./imgs/icon_dash/termometro.png">
-        <span>Temperaturas</span>
-        <img class="icon_umi" src="./imgs/icon_dash/umidade.png">
-        <span>Umidade</span>
-        <img class="icon_log" src="./imgs/icon_dash/logout.png"> <br>
+        <img onclick="sair()" class="icon_log" src="./imgs/icon_dash/logout.png"> <br>
         <span>Sair</span>
     </div>
     <div class="container">

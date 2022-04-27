@@ -23,26 +23,26 @@
                     <input placeholder="Xpto" type="text" id="input_empresa">
                     <span id="span_empresa"></span>
                 </div>
-
-                <div>
-                    <label for="input_estado">Estado:</label>
-                    <input placeholder="SP" type="text" id="input_estado">
-                    <span id="span_estado"></span>
-                </div>
-
+                
                 <div>
                     <label for="telefone_input">Telefone:</label>
                     <input placeholder="+55 (11)962257127" type="number" id="telefone_input">
                     <span id="span_telefone"></span>
                 </div>
 
-            </div>
-
-            <div class="caixa2">
                 <div>
                     <label for="CNPJ_input">CNPJ:</label>
                     <input placeholder="11 111 111 111" type="number" id="CNPJ_input">
                     <span id="span_cnpj"></span>
+                </div>
+                
+            </div>
+            
+            <div class="caixa2">
+                <div>
+                    <label for="cep_input">CEP:</label>
+                    <input type="number" placeholder="03080130" id="cep_input" onchange="viacep()">
+                    <span id="span_cep"></span>
                 </div>
 
                 <div>
@@ -50,12 +50,14 @@
                     <input placeholder="rua xpto" id="rua_input">
                     <span id="span_rua"></span>
                 </div>
-
+                
                 <div>
-                    <label for="cep_input">CEP:</label>
-                    <input type="number" placeholder="03080-130" id="cep_input">
-                    <span id="span_cep"></span>
+                    <label for="input_estado">Estado:</label>
+                    <input placeholder="SP" type="text" id="input_estado">
+                    <span id="span_estado"></span>
                 </div>
+
+
                 <button type="button" onclick="cadastrar_empresa()">Cadastrar</button>
             </div>
 
@@ -152,9 +154,8 @@
 
             if (resposta.ok) {
 
-                alert('Cadastro Realizado')
-                sessionStorage.ID_EMPRESA = json.idEmpresa;
-                window.location = "cadastro_usuario.html";
+                    alert('Cadastro Realizado');
+                    window.location = 'cadastro_usuario.html'
 
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
@@ -169,5 +170,24 @@
         
     }
 }
+
+function viacep() {
+
+    fetch(`https://viacep.com.br/ws/${cep_input.value}/json/`, {
+        method: "GET",
+        mode: "cors"
+    }).then(function (resposta) {
+        console.log(resposta)
+        resposta.json().then(function(data) {
+            console.log(data)
+            input_estado.value = data.uf;
+            rua_input.value = data.logradouro;
+        })
+
+    }).catch(function (erro) {
+        console.log(erro)
+    })
+}
+
 
 </script>
