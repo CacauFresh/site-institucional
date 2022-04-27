@@ -3,15 +3,13 @@ function tela_inicial(){
 }
 
 function sair(){
-    sessionStorage.EMAIL_USUARIO = ''
-    sessionStorage.NOME_USUARIO = ''
-    sessionStorage.ID_USUARIO = ''
-
+    sessionStorage.clear()
+    
     window.location = 'index.html'
 }
 
 function verificarlogin(){
-    if(sessionStorage.EMAIL_USUARIO ==  '' || sessionStorage.NOME_USUARIO ==  '' || sessionStorage.ID_USUARIO == ''){
+    if(sessionStorage.EMAIL_USUARIO ==  null || sessionStorage.NOME_USUARIO ==  null || sessionStorage.ID_USUARIO == null){
 
         alert('Faça um login para continuar')
         window.location = 'index.html'
