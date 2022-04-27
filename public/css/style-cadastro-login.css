@@ -62,6 +62,13 @@ label {
     
 }
 
+.span_validacao {
+    display: flex;
+    color: red;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
 .tfot {
     position:absolute;
     bottom: 100px;

@@ -155,7 +155,7 @@ function graf_temp2() {
             label: 'Temperatura',
             backgroundColor: 'white',
             borderColor: 'darkred',
-            data: [23, 24, 27, 30, 22, 21, 25],
+            data: [18, 24, 22, 26, 22, 21, 29],
         }]
     };
 
