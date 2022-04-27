@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
 body{
     background-image: url('https://cdn.pixabay.com/photo/2013/09/18/18/24/chocolate-183543_960_720.jpg');
     background-size: cover;
@@ -9,7 +15,7 @@ body{
 .tela_branca {
     width: 100vw;
     height: 100vh;
-    background-color: rgba(255, 255, 255, 0.11);
+    background-color: rgba(0, 0, 0, 0.425);
     position: absolute;
     z-index: -2;
 
@@ -83,17 +89,17 @@ background: radial-gradient(circle, rgba(185,97,18,1) 0%, rgba(117,66,21,1) 100%
 
 .alerts #condicao_OK{
     background-color: green;
-    border: 3px solid darkgreen;
+    border: 3px solid rgb(0, 41, 0);
 }
 
 .alerts #condicao_alerta{
     background-color: yellow;
-    border: 3px solid rgb(177, 177, 1);
+    border: 3px solid rgb(61, 61, 0);
 }
 
 .alerts #condicao_perigo{
     background-color: red;
-    border: 3px solid darkred;
+    border: 3px solid rgb(51, 0, 0);
 }
 
 .alerts #total_sensores{
@@ -102,13 +108,13 @@ background: radial-gradient(circle, rgba(185,97,18,1) 0%, rgba(117,66,21,1) 100%
 }
 
 .card {
-    background-color: rgba(228, 228, 228, 0.808);
+    background-color: rgba(228, 228, 228, 0.89);
     border-radius: 8px;
     padding: 20px;
     font-size: 25px;
     height: 370px;
     width: 70%;
-    box-shadow: 5px 5px 6px rgb(24, 24, 24);
+    box-shadow: 5px 5px 6px #221000;
 
 }
 

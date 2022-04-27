@@ -8,14 +8,14 @@ function sair(){
     window.location = 'index.html'
 }
 
-function verificarlogin(){
+ function verificarlogin(){
     if(sessionStorage.EMAIL_USUARIO ==  null || sessionStorage.NOME_USUARIO ==  null || sessionStorage.ID_USUARIO == null){
 
         alert('Faça um login para continuar')
         window.location = 'index.html'
     }
  } 
-
+ 
 function set_graf(){
     var selecao = select_setor.value;
     
