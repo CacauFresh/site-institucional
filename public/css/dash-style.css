@@ -30,15 +30,7 @@ body{
     cursor: pointer;
 }
 
-.icon_temp{
-    width: 40% !important;
-    margin-top: 130% !important;
-}
 
-.icon_umi{
-    width: 35% !important;
-    margin-top: 70% !important;
-}
 
 .icon_log{
     width: 30% !important;
