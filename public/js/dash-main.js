@@ -14,7 +14,7 @@ function verificarlogin(){
         alert('Faça um login para continuar')
         window.location = 'index.html'
     }
-}
+ } 
 
 function set_graf(){
     var selecao = select_setor.value;
@@ -79,8 +79,8 @@ function graf_temp1() {
         labels: labels,
         datasets: [{
             label: 'Temperatura',
-            backgroundColor: 'black',
-            borderColor: 'aqua',
+            backgroundColor: 'white',
+            borderColor: 'darkred',
             data: [23, 24, 27, 30, 22, 21, 25],
         }]
     };
@@ -115,7 +115,7 @@ function graf_umi1() {
         datasets: [{
             label: 'Umidade',
             backgroundColor: 'white',
-            borderColor: 'black',
+            borderColor: 'darkblue',
             data: [55, 47, 33, 57, 56, 40, 30],
         }]
     };
@@ -149,8 +149,8 @@ function graf_temp2() {
         labels: labels,
         datasets: [{
             label: 'Temperatura',
-            backgroundColor: 'black',
-            borderColor: 'aqua',
+            backgroundColor: 'white',
+            borderColor: 'darkred',
             data: [23, 24, 27, 30, 22, 21, 25],
         }]
     };
@@ -185,7 +185,7 @@ function graf_umi2() {
         datasets: [{
             label: 'Umidade',
             backgroundColor: 'white',
-            borderColor: 'black',
+            borderColor: 'darkblue',
             data: [20, 21, 23, 24, 25, 11, 11],
         }]
     };
@@ -220,8 +220,8 @@ function graf_temp3() {
         labels: labels,
         datasets: [{
             label: 'Temperatura',
-            backgroundColor: 'black',
-            borderColor: 'aqua',
+            backgroundColor: 'white',
+            borderColor: 'darkred',
             data: [23, 24, 27, 30, 22, 21, 25],
         }]
     };
@@ -256,7 +256,7 @@ function graf_umi3() {
         datasets: [{
             label: 'Umidade',
             backgroundColor: 'white',
-            borderColor: 'black',
+            borderColor: 'darkblue',
             data: [55, 47, 33, 57, 56, 40, 30],
         }]
     };

@@ -1,7 +1,18 @@
 body{
+    background-image: url('https://cdn.pixabay.com/photo/2013/09/18/18/24/chocolate-183543_960_720.jpg');
+    background-size: cover;
     border: 0;
     padding: 0;
     margin: 0;
+}
+
+.tela_branca {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.11);
+    position: absolute;
+    z-index: -2;
+
 }
 
 .container{
@@ -14,9 +25,11 @@ body{
 .header-left{
     display: flex;
     flex-direction: column;
-    background-color: rgb(85, 21, 21);
-    border-bottom: 2px solid black;
-    height: 99.5vh;
+    background: rgb(185,97,18);
+background: radial-gradient(circle, rgba(185,97,18,1) 0%, rgba(117,66,21,1) 100%);
+    border-right: 2px solid black;
+    box-shadow: 5px 5px 10px black;
+    height: 100vh;
     width: 7%;
     float: left;
     color: white;
@@ -34,7 +47,8 @@ body{
 
 .icon_log{
     width: 30% !important;
-    margin-top: 70% !important;
+    margin-top: 510% !important;
+
 }
 
 .container h2{
@@ -83,12 +97,12 @@ body{
 }
 
 .alerts #total_sensores{
-    background-color: rgb(160, 160, 160);
-    border: 3px solid rgb(100, 100, 100)
+    background-color: rgb(119, 255, 187);
+    border: 3px solid rgb(8, 8, 8)
 }
 
 .card {
-    background-color: rgba(228, 228, 228, 0.548);
+    background-color: rgba(228, 228, 228, 0.808);
     border-radius: 8px;
     padding: 20px;
     font-size: 25px;
@@ -111,10 +125,10 @@ body{
     height: 7%;
     border: none;
     border-radius: 6px;
-    background-color: rgb(160, 160, 160);
+    background-color: rgb(77, 75, 75);
     color: white;
     font-weight: bold;
-    margin-left: 10%;
+    margin-left: 2%;
 }
 
 option{
