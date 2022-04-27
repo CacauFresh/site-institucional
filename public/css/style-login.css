@@ -19,6 +19,7 @@ body {
     border: 6px solid rgba(66, 4, 4, 0.76) ;
     border-radius: 50px;
     box-shadow: #cccccc 5px 5px 5px;
+    margin-left: -8%;
 }
 
 form {
@@ -124,4 +125,20 @@ p {
 .pai{
     display: flex;
     
+}
+
+header img{
+    margin-top: 6%;
+    width: 28%;
+    transform: rotate(180deg);
+    cursor: pointer;
+    margin-left:-230%;
+}
+
+header img{
+    margin-top: 6%;
+    width: 28%;
+    transform: rotate(180deg);
+    cursor: pointer;
+    margin-left:-350%;
 }
