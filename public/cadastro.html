@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cacau Fresh | Cadastro</title>
     <link rel="stylesheet" href="./css/style-cadastro.css">
+    <link rel="shortcut icon" href="./imgs/favicon.ico" type="image/x-icon">
+
 </head>
 
 <body>
@@ -151,7 +153,8 @@
             if (resposta.ok) {
 
                 alert('Cadastro Realizado')
-                window.location = "login.html";
+                sessionStorage.ID_EMPRESA = json.idEmpresa;
+                window.location = "cadastro_usuario.html";
 
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");

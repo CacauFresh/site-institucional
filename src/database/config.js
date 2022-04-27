@@ -22,8 +22,15 @@ var mySqlConfig = {
     host: "localhost",
     user: "root",
     database: "cacaufresh",
-    password: "1234",
+    password: "",
 };
+
+/* var mySqlConfig = {
+    host: "localhost",
+    user: "root",
+    database: "cacaufresh",
+    password: "sptech",
+}; */
 
 function executar(instrucao) {
     // VERIFICA A VARIÁVEL DE AMBIENTE SETADA EM app.js

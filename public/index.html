@@ -8,7 +8,6 @@
     <title>Home</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="./imgs/favicon.ico" type="image/x-icon">
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./js/main.js"></script>
 
@@ -68,17 +67,17 @@
                 <div id="caixa_fotos">
                     <div id="img_cima">
                         <div class="imagens_equipe">
-                            <img src="imgs/Lucas - Equipe.jpg">
+                            <img src="./imgs/equipe/Lucas - Equipe.jpg">
                             <span>Lucas Soares</span>
                         </div>
 
                         <div class="imagens_equipe">
-                            <img id="imagem_breno" src="imgs/Breno formal.jpg">
+                            <img id="imagem_breno" src="./imgs/equipe/Breno formal.jpg">
                             <span>Breno Galante</span>
                         </div>
 
                         <div class="imagens_equipe">
-                            <img src="imgs/William - Equipe.jpg">
+                            <img src="./imgs/equipe/William - Equipe.jpg">
                             <span>Willian Paternezi</span>
                         </div>
                     </div>
@@ -86,17 +85,17 @@
                     <div id="img_baixo">
 
                         <div class="imagens_equipe">
-                            <img src="imgs/Matheus - Equipe.jpg">
+                            <img src="./imgs/equipe/Matheus - Equipe.jpg">
                             <span>Matheus Ferraz</span>
                         </div>
 
                         <div class="imagens_equipe">
-                            <img src="imgs/Gabriel - Equipe.png">
+                            <img src="./imgs/equipe/Gabriel - Equipe.png">
                             <span>Gabriel Maximiano</span>
                         </div>
 
                         <div class="imagens_equipe">
-                            <img src="imgs/Fabiano - Equipe.jpeg">
+                            <img src="./imgs/equipe/Fabiano - Equipe.jpeg">
                             <span>Fabiano Souza</span>
                         </div>
 
@@ -116,20 +115,20 @@
 
                 <div class="box_serv">
                     <h3>Sensores</h3>
-                    <img src="./imgs/termometro.png">
+                    <img src="./imgs/icones/termometro.png">
                     <p>Sensores localizados em locais estratégicos, tendo então, o melhor gerenciamento da sua
                         plantação.</p>
                 </div>
 
                 <div class="box_serv">
                     <h3>Colheita</h3>
-                    <img src="./imgs/cacau.png">
+                    <img src="./imgs/icones/cacau.png">
                     <p>Aumento da produtividade, com prioridades emáreas que necessitam maior atenção.</p>
                 </div>
 
                 <div class="box_serv">
                     <h3>Lucro</h3>
-                    <img src="./imgs/arvore-de-dinheiro.png">
+                    <img src="./imgs/icones/arvore-de-dinheiro.png">
                     <p>Uma forma simples e descomplicada para ser utilizada por agricultores
                     </p>
                 </div>
@@ -144,7 +143,7 @@
                 <div id="cotacao_cont">
                     <h1 id="h1_cot">Cansado de Perder em sua Produção</h1>
                     <p>Faça uma breve simulação para ver o quanto o Cacau Fresh irá te ajudar</p>
-                    <button id="botao_cot">Cotação</button>
+                    <button id="botao_cot" onclick="simulador()">Cotação</button>
                 </div>
             </div>
                 
@@ -167,3 +166,9 @@
 </body>
 
 </html>
+
+<script>
+    function simulador(){
+        window.location = 'Financeiro_CacauFresh.html'
+    }
+</script>

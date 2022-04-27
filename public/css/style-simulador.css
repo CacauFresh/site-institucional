@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@100&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sectionSimulador {
+    width: 100%;
+    height: 90vh;
+}
+
+.headerSimu {
+    width: 100%;
+    height: 10vh;
+    background: linear-gradient(90deg, #52200B 0%, #864606 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    font-size: 40px;
+    color: #ffffff;
+}
+
+#sectionGeral{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* PRIMEIRA Section: diagramas-----*/
+#cardDiagram {
+    width: 33vw;
+    height: 90vh;
+    transition: 1s;
+}
+#cardDiagram p{
+    width: 250px;
+    font-size: 15px;
+}
+
+.diagram1{
+    width: 90%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.diagram1 img{
+    width: 180px;
+}
+
+.diagram2{
+    width: 90%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.diagram2 img{
+    width: 100px;
+    margin-right: 20px;
+}
+
+/* FIM------------------------------*/
+
+
+/* SEGUNDA SECTION: SIMULADOR--------*/
+
+#btnVoltar{
+    width: 90px;
+    height: 30px;
+    display: none;
+    align-self: flex-start;
+}
+
+#cardSimu {
+    width: 33vw;
+    height: 90vh;
+
+}
+
+#topoSimu {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 26px;
+}
+#topoSimu label{
+    margin-top: 20px;
+}
+
+#cardSimu input[type=number]{
+    width: 200px;
+    height: 35px;
+    font-size: 20px;
+    border: 0;
+    border-bottom: 2px solid #974f07;
+}
+#cardSimu input[type=number]:focus{
+    border: 0;
+    border-bottom: 3px solid #864606;
+    outline: 0;
+
+}
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none; 
+}
+
+
+
+/* PLACEHOLDER TOP */
+.user-input-wrp {
+	position: relative;
+	width: 50%;
+}
+.user-input-wrp .inputText{
+	width: 100%;
+	outline: none;
+	border:none;
+	border-bottom: 1px solid #777;
+ 	box-shadow: none !important;
+}
+.user-input-wrp .inputText:focus{
+	border-color: blue;
+	border-width: medium medium 2px;
+}
+.user-input-wrp .floating-label {
+	position: absolute;
+	pointer-events: none;
+	top: 18px;
+	left: 10px;
+	transition: 0.2s ease all;
+}
+.user-input-wrp input:focus ~ .floating-label,
+.user-input-wrp input:not(:focus):valid ~ .floating-label{
+	top: 0px;
+	left: 10px;
+	font-size: 13px;
+	opacity: 1;
+}
+/* PLACEHOLDER TOP */
+
+
+
+#cardSimu button{
+    margin-top: 40px;
+    font-size: 32px;
+    background-color: #00685A;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0 10px;
+    border: none;
+    outline: none;
+}
+
+#cardSimu button:hover{
+    transition: 0.1s;
+    background-color: #01554a;
+}
+
+#cardSimu button:active{
+    background-color: #974f07;
+}
+
+#cardSimu article img{
+    width: 100px;
+}
+#cardSimu article{
+    width: 70%;
+    margin-top: 20%;
+    margin-left: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+#cardSimu article p{
+    font-size: 18px;
+    margin-left: 10%;
+}
+
+#valorPerdaCheck{
+    width: 20px;
+    height: 20px; 
+    cursor: pointer;
+}
+#perdaCheck label{
+    cursor: pointer;
+    font-size: 16px;
+}
+#esconder{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+/*Fim --------*/
+
+
+/*Terceira section: Resultado-------------*/
+#cardResult{
+    width: 33vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#cardResult article{
+    font-size: 32px;
+    margin-top: 10%;
+    display: none;
+}
+
+

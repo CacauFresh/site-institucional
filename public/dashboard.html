@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/dash-style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/dash-main.js"></script>
+    <title>CacauFresh | Dashboard</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header-left">
+        <img onclick="tela_inicial()" src="./imgs/icon_dash/arrow.png">
+        <img class="icon_temp" src="./imgs/icon_dash/termometro.png">
+        <span>Temperaturas</span>
+        <img class="icon_umi" src="./imgs/icon_dash/umidade.png">
+        <span>Umidade</span>
+        <img class="icon_log" src="./imgs/icon_dash/logout.png"> <br>
+        <span>Sair</span>
+    </div>
+    <div class="container">
+        <div class="alerts">
+            <div id="total_sensores" class="div_condicao">Total de sensores:<br>X</div>
+            <div id="condicao_OK" class="div_condicao">Ok:<br>X</div>
+            <div id="condicao_alerta" class="div_condicao">Alerta:<br>X</div>
+            <div id="condicao_perigo" class="div_condicao">Perigo:<br>X</div>
+        </div>
+        <div class="card">
+            <span id="span_setor">Escolha o setor:</span>
+            <select id="select_setor" onchange="set_graf()">
+                <option value="-">Escolha:</option>
+                <option value="set_1">Setor 1</option>
+                <option value="set_2">Setor 2</option>
+                <option value="set_3">Setor 3</option>
+            </select>
+            <div class="graficos">
+                <div id="graficoCalor" class="grafico">
+                    <canvas id="myChart"></canvas>
+                </div>
+                <div id="graficoUmidade" class="grafico">
+                    <canvas id="myChart2"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
