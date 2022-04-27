@@ -42,19 +42,24 @@ background: radial-gradient(circle, rgba(185,97,18,1) 0%, rgba(117,66,21,1) 100%
     align-items: center;
 }
 
-.header-left img{
+.icon_arrow{
     margin-top: 20%;
     width: 28%;
     transform: rotate(180deg);
     cursor: pointer;
 }
 
+.icon_user{
+    margin-top: 200% !important;
+    width: 28% !important ;
+    cursor: pointer;
+}
 
 
 .icon_log{
     width: 30% !important;
-    margin-top: 510% !important;
-
+    margin-top: 210% !important;
+    cursor: pointer;
 }
 
 .container h2{

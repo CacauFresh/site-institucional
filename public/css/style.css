@@ -158,6 +158,7 @@ a {
     height: 100vh;
     width: 98.5vw;
     display: flex;
+    padding-top: 3%;
 }
 
 #equipe_cont {

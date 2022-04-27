@@ -15,6 +15,10 @@ function sair(){
         window.location = 'index.html'
     }
  } 
+
+ function cad_user(){
+     window.location = 'cadastro_usuario.html'
+ }
  
 function set_graf(){
     var selecao = select_setor.value;
