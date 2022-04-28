@@ -29,8 +29,8 @@ function calcular() {
     } else {
       var valorPerda = Number(input_valorPerda.value)
       var lucroIdeal = colheita * valorPorKg
-      var lucroConPerda = lucroIdeal - valorPerda
-
+      var lucroConPerda = (colheita - valorPerda) * valorPorKg
+      console.log(lucroConPerda)
       var prejuizoBruto = lucroIdeal - lucroConPerda
       var percent_Preju = (prejuizoBruto / lucroIdeal)*100
       var percent_Venda = 100 - percent_Preju
