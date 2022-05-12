@@ -82,11 +82,21 @@ a {
 
 #div_home {
     height: 100vh;
-    width: 98.5vw;
-    background: linear-gradient(90deg, #52200b 0%, #862c06 100%);
+    width: 100%;
+    background-size: contain no-repeat;
+    background-image: url(../imgs/cacau_index.jpg);
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: start;
+    align-items: initial;
+    z-index: -2;
+}
+.forma_estranha{
+    margin: 0%;
+    width: 53%;
+    top: 13%;
+    left: -5%;
+    position: absolute;
+    z-index: 0;
 }
 
 .home_cont {
@@ -97,13 +107,11 @@ a {
 
 #div_home p {
     color: #eeeeee;
-    font-size: 2.4em;
-    width: 40%;
-}
-
-#div_home img {
-    width: 24%;
-    float: right;
+    font-size: 3.4em;
+    width: 59%;
+    margin-left: -35%;
+    z-index: 1;
+    margin-top: -31%;
 }
 
 /* Configuração da seção sobre */
