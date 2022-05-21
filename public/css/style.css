@@ -92,11 +92,11 @@ a {
 
 .texto_forma_estranha{
     width: 53%;
-    top: 20vh;
-    left: 1vw;
+    top: 14vh;
+    left: 4vw;
     position: absolute;
     z-index: 4;
-    font-size:140%;
+    font-size:160%;
     color: #ececec;
 }
 .img_forma_estranha{
