@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/carousel.css">
     <link rel="shortcut icon" href="./imgs/favicon.ico" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./js/main.js"></script>
-
 
 </head>
 
@@ -30,14 +30,45 @@
 
         </div>
     </header>
-
     <section id="sec_home">
-        <div id="div_home">
-            <div class="home_cont">
-                <img class="forma_estranha" src="imgs/Star_2Forma_estranha.png">
-                <p> A solução que precisa na sua <b>Plantação de Cacau</b></p>
+        <div class="forma_estranha">
+        <p class="texto_forma_estranha"> A solução que precisa na sua <b>Plantação de Cacau</b></p>
+                <img class="img_forma_estranha" src="imgs/Star_2Forma_estranha.png">
             </div>
-        </div>
+
+                <div class="slider">
+                    <div class="slides">
+                        <input type="radio" name="radio-btn" id="radio1">
+                        <input type="radio" name="radio-btn" id="radio2">   
+                        <input type="radio" name="radio-btn" id="radio3">
+                        <input type="radio" name="radio-btn" id="radio4">
+            
+                        <div class="slide primeiro">
+                            <img src="./imgs/carousel/primeiro.jpg">
+                        </div>
+                        <div class="slide segundo">
+                            <img src="./imgs/carousel/segundo.jpg">
+                        </div>
+                        <div class="slide terceiro">
+                            <img src="./imgs/carousel/terceiro.jpg">
+                        </div>
+                        <div class="slide quarto">
+                            <img src="./imgs/carousel/quarto.jpg"">
+                        </div>
+                        <div class="navigation-auto">
+                            <div class="auto-btn1"></div>
+                            <div class="auto-btn2"></div>
+                            <div class="auto-btn3"></div>
+                            <div class="auto-btn4"></div>
+                        </div>
+                    </div>
+                    <div class="manual-navigation">
+                        <label for="radio1" class="manual-btn"></label>
+                        <label for="radio2" class="manual-btn"></label>
+                        <label for="radio3" class="manual-btn"></label>
+                        <label for="radio4" class="manual-btn"></label>
+                    </div>
+                </div>
     </section>
 
     <section id="sec_sobre">
@@ -166,7 +197,7 @@
 </body>
 
 </html>
-
+<script src="./js/carousel.js"></script>
 <script>
     function simulador(){
         window.location = 'Financeiro_CacauFresh.html'
