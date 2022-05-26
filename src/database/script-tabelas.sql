@@ -18,6 +18,7 @@ CREATE TABLE Empresa (
   senha VARCHAR(20) ,
   fkEmpresa INT ,
   FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa));
+  select * from usuario;
   
 create table setor (
 idSetor int primary key auto_increment,
@@ -28,20 +29,18 @@ foreign key (fkEmpresa) references empresa(idEmpresa)
 
 create table Sensor (
 idSensor int primary key auto_increment,
-sensor varchar(50),
+nome_sensor varchar(50),
 fkSetor int,
 foreign key (fkSetor) references setor(idSetor)
 );
 
-create table registro (
-idRegistro int primary key auto_increment,
+create table historico (
+idHistorico int primary key auto_increment,
 temperatura_C float,
-alerta_temp varchar(15),
 umidade_UR float,
-alerta_umi varchar(15),
 data_hora datetime default current_timestamp,
 fkSensor int,
-foreign key (fkSensor) references sensor(idSensor),
-estado varchar(40)
+foreign key (fkSensor) references sensor(idSensor)
 );
 
+select temperatura_C, umidade_UR, data_hora from historico as h join sensor as s on h.fkSensor = s.idSensor where fkSetor = 
