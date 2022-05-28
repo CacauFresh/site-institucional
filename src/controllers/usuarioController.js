@@ -100,6 +100,7 @@ function cadastrar_empresa(req, res) {
 
 function cadastrar_usuario(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var fkUsuario = req.body.fkUsuarioServer;
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
@@ -114,7 +115,7 @@ function cadastrar_usuario(req, res) {
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar_usuario(nome, email, senha)
+        usuarioModel.cadastrar_usuario(nome, email, senha, fkUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -132,10 +133,28 @@ function cadastrar_usuario(req, res) {
     }
 }
 
+function get_info(req, res) {
+    usuarioModel.get_info()
+        .then(function (res1) {
+            if (res1.length > 0) {
+                res.status(200).json(res1);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     entrar,
     cadastrar_empresa,
     cadastrar_usuario,
+    get_info,
     listar,
     testar
 }
