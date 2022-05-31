@@ -13,10 +13,10 @@
     <title>CacauFresh | Dashboard</title>
 </head>
 
-<body>
+<body onload="obterDadosGrafico(1)">
     <!-- Header -->
     <div class="header-top">
-        <span class="texto_ola"> Olá, (usuário) </span>
+        <span class="texto_ola"> Olá, <span id="nome_usuario"></span> </span>
     </div>
     <div class="header-left">
         <ul class="lista_lateral">
@@ -46,11 +46,11 @@
 
     <div id="div_loading">
         <div id="div_inp">
-            <input onchange="drag_end()" type="range" min="1" max="4" value="0" id="inp_valor">
+            <input onchange="mouseMove()" type="range" min="1" max="4" value="0" id="inp_valor">
         
-            <input id="demo" onchange="teste()">
+            <input id="demo" onchange="loading()">
         </div>
-        <img id="img_gabs" src="./imgs/equipe/Gabriel - Equipe.png" width="200px" style="display: none;">
+        <div id="img_loading" style="display: none;"></div>
         <span id="total_setores"></span>
     </div>
 
@@ -74,20 +74,20 @@
         output.value = valor_input;
     }
 
-    function drag_end() {
+    function mouseMove() {
         var valor_input = Number(input.value)
         obterDadosGrafico(valor_input);
         div_inp.style.display = 'none'
-        img_gabs.style.display = 'flex'
+        img_loading.style.display = 'flex'
     }
 
-    function teste() {
+    function loading() {
         var num = demo.value;
         input.value = num
         clearTimeout(proximaAtualizacao);
         obterDadosGrafico(num)
         div_inp.style.display = 'none'
-        img_gabs.style.display = 'flex'
+        img_loading.style.display = 'flex'
     }
 
 
@@ -127,17 +127,15 @@
                 {
                     yAxisID: 'y-umidade',
                     label: 'Umidade',
-                    borderColor: '#32B9CD',
-                    backgroundColor: '#32b9cd8f',
-                    fill: true,
+                    borderColor: 'black',
+                    backgroundColor: 'rgba(141, 255, 247, 0.8)',
                     data: []
                 },
                 {
                     yAxisID: 'y-temperatura',
                     label: 'Temperatura',
-                    borderColor: '#FFF',
-                    backgroundColor: '#32b9cd8f',
-                    fill: true,
+                    borderColor: '#E94141',
+                    backgroundColor: 'rgba(255, 0, 0, 0.8)',
                     data: []
                 }
             ]
@@ -224,7 +222,7 @@
 
                     window.grafico_linha.update();
                     div_inp.style.display = 'flex'
-                    img_gabs.style.display = 'none'
+                    img_loading.style.display = 'none'
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
                     proximaAtualizacao = setTimeout(() => atualizarGrafico(fkSetor, dados), 2000);
@@ -241,11 +239,37 @@
 
     }
 
+    function getSetor() {
+    var idEmpresa = sessionStorage.ID_EMPRESA;
 
+    var corpo = {
+        idEmpresa: idEmpresa
+    }
+    fetch("/avisos/getSetor", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(corpo)
+    }).then(function (resultado) {
 
+        console.log("ESTOU NO THEN DO getSetor()!")
+        if (resultado.ok) {
+            resultado.json().then(function (resultado) {
+                console.log("Dados recebidos do Perfil: ", JSON.stringify(resultado));
+                console.log(resultado[0].qtdSensor)
+                inp_valor.setAttribute("max", resultado[0].qtdSensor)
+            });
+        } else {
+            console.log("Dados recebidos: ", JSON.stringify(resultado));
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+}
 
-
-
+getSetor();
+nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
 
 

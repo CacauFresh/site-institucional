@@ -31,4 +31,8 @@ router.delete("/deletar/:idAviso", function (req, res) {
     avisoController.deletar(req, res);
 });
 
+router.post("/getSetor", function (req, res) {
+    avisoController.getSetor(req, res);
+});
+
 module.exports = router;
