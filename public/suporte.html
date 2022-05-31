@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="./css/suporte-style.css" />
+      <script src="./js/suporte.js"></script>
+      <title>CacauFresh | Dashboard</title>
+    </head>
+    
+  <body>
+    <!-- Header -->
+    <div class="header-top">
+      <span class="texto_ola"> Olá, <span id="nome_usuario"></span> </span>
+    </div>
+    <div class="header-left">
+      <ul class="lista_lateral">
+        <li>
+          <img onclick="go_home()" class="link" src="./imgs/icon_dash/home-icon-silhouette.png"/>
+        </li>
+       
+        <li>
+          <img onclick="go_setor()" class="link" src="./imgs/icon_dash/pie-chart.png"/>
+        </li>
+       
+        <li>
+          <img onclick="go_alerta()" class="link" src="./imgs/icon_dash/danger.png"/>
+        </li>
+      
+        <li>
+          <img onclick="go_suporte()" class="link" src="./imgs/icon_dash/apoio-suporte.png"/>
+        </li>
+      
+        <li>
+          <img onclick="go_usuario()" class="link" src="./imgs/icon_dash/user.png"/>
+        </li>
+
+        
+    </ul>
+    
+      <img
+        class="link"
+        src="./imgs/icon_dash/logout.png"
+        
+      />
+    </div>
+    <div class="container_card">
+        <div class="card">
+            <h1> Precisando de ajuda, nos envie um email ou utilize nosso chat no canto inferior direito. </h1>
+            <h1>support@sptech9648.zendesk.com</h1>
+        </div>
+    </div>
+  </body>
+</html>
+
+<!-- Start of sptech9648 Zendesk Widget script -->
+<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=9ded8f5f-4c46-4289-8451-5836e480fd1f"> </script>
+<!-- End of sptech9648 Zendesk Widget script -->
+
+<script>
+    mudar_nome();
+</script>
