@@ -52,6 +52,23 @@ function get_info() {
     return database.executar(instrucao);
 }
 
+function last_temp(idEmpresa) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar_usuario():", idEmpresa);
+    
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+    select  idSetor , temperatura_C , umidade_UR from empresa 
+    join setor on idEmpresa = fkEmpresa
+    join sensor on idSetor = fkSetor
+    join historico on idSensor = fkSensor
+    where idEmpresa = ${idEmpresa}
+    order by data_hora desc limit 3;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     get_info,

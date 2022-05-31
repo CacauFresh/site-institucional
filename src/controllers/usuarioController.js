@@ -150,8 +150,34 @@ function get_info(req, res) {
         );
 }
 
+function last_temp(req, res) {
+    var idEmpresa = req.body.idEmpresa;
+
+    if (idEmpresa == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    } else {
+        
+        usuarioModel.last_temp(idEmpresa)
+            .then(
+                function (resultado) {
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao pegar o id", erro.sqlMessage);
+                    alert('Id invalido')
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+}
+
 module.exports = {
     entrar,
+    last_temp,
     cadastrar_empresa,
     cadastrar_usuario,
     get_info,
