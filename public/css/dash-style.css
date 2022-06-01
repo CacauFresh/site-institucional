@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@100&display=swap');
+
 body{
     border: 0;
     padding: 0;
@@ -12,7 +14,7 @@ body{
     width: 100px;
     background-color: #EDF3F5;
     height: 80px;
-    width: 85%;
+    width: 95%;
 }
 .texto_ola{
     color: black;
@@ -27,13 +29,11 @@ body{
     background-color: rgb(85, 21, 21);
     border-bottom: 2px solid black;
     height: 99.7vh;
-    width: 15%;
+    width: 5%;
     float: left;
     color: white;
     align-items: center;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: space-around;
     font-size: 30px;
 }
 
@@ -42,14 +42,15 @@ body{
     padding: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    margin-left: 20px;
+    justify-content: space-between;
     text-decoration: none;
+    align-items: center !important;
+    width: 40%;
+    height: 500px;
 }
 .link{
-    text-decoration: none;
-    color: white;
-    /* font-family: Poppyns; */
+    display: flex;
+    width: 35px;
 }
 
 .botao_sair{
@@ -57,149 +58,63 @@ body{
     margin-bottom: 30px;
     margin-left: 30px;
 }
-.container{
-    display: flex;
-    padding: 30px;
-    justify-content: space-between;
-    align-items: center;
-}
 
-.grafs1{
+.box_conteudo{
+    height: 87.5vh;
+    width: 88vw;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-}
-.organizar_graf{
-    margin-top: 25px;
-    display: flex;
     justify-content: space-around;
-    align-items: center;
-    width: 800px;
-}
-
-
-.header-left img{
-    margin-top: 20%;
-    width: 28%;
-    transform: rotate(180deg);
-    cursor: pointer;
-}
-
-.alerts{
-    margin-top: 20px;
-    width: 60%;
-    height: 160px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-
-.card {
-    background-color: rgba(228, 228, 228, 0.548);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    font-size: 25px;
-    height: 210px;
-    width: 680px;
-    box-shadow: 5px 5px 6px rgb(24, 24, 24);
-    display: flex;
     align-self: center;
+    margin-left: 8.5%;
 }
 
-.graficos{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.canvas{
-    border: 3px solid black;
-    height: 200px;
-    width: 320px;
-    display: flex;
-    border-radius: 0px;
-}
-.grafs_laterais{
+.box {
+    height: 87.5vh;
+    width: 48vw;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    justify-content: end;
-}
- .classe_texto{
-    display: flex;
-    border: 3px solid black;
-    width: 250px;
-    height: 230px;
-} 
-
-@keyframes spinner {
-    to {transform: rotate(360deg);}
-  }
-   
-#img_loading:before {
-    content: '';
-    box-sizing: border-box;
-    position: absolute;
-    top: 82%;
-    left: 54%;
-    width: 60px;
-    height: 60px;
-    margin-top: -10px;
-    margin-left: -10px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #07d;
-    border-bottom-color: #07d;
-    animation: spinner .8s ease infinite;
-}
-
-.container{
-    width: 81%;
-    display: flex;
-    justify-content: center;
-}
-
-.graph{
-    width: 1100px;
-    height: 600px;
-}
-
-#div_inp{
-    width: 84%;
-    height: 100px;
-    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#inp_valor{
-    width: 200px;
-    -webkit-appearance: none;
-    background: #ffffffcc;
-    border-radius: 5px;
-    height: 2px;
-    border: 2px solid black;
+.titulo {
+    font-size: 13.0mm;
+    margin-bottom: 8vh;
 }
 
-#inp_valor::-webkit-slider-thumb{
-    -webkit-appearance: none;
-    appearance: none;
-    border-radius: 50px;
-    width: 20px;
-    height: 20px; 
-    background: #06ffa4; 
-    cursor: pointer;
+.grafico {
+    width: 48vw;
+    height: 38vh;
+    box-shadow: #551515 2px 5px 23px;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
-#div_inp #inp_valor:hover{
-    cursor: pointer;
+.grafico div{
+    height: 30px;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+    width: 0%;
+    transition: 0.5s;
 }
 
-#div_inp #demo{
-    width: 100px;
-    height: 20px;
+#estavel {
+    background-color: rgb(159, 255, 14);
+}
+
+#alerta {
+    background-color: rgb(250, 246, 12);
+}
+
+#critico {
+    background-color: #ff0000;
+}
+
+.box_alertas {
+    width: 25vw;
+    height: 80vh;
+    border: 2px red solid;
 }

@@ -72,6 +72,7 @@ function last_temp(idEmpresa) {
 module.exports = {
     entrar,
     get_info,
+    last_temp,
     cadastrar_empresa,
     listar,
     cadastrar_usuario,

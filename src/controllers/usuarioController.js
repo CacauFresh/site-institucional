@@ -151,7 +151,7 @@ function get_info(req, res) {
 }
 
 function last_temp(req, res) {
-    var idEmpresa = req.body.idEmpresa;
+    var idEmpresa = req.body.idEmpresaServer;
 
     if (idEmpresa == undefined) {
         res.status(400).send("Seu email está undefined!");
@@ -160,8 +160,7 @@ function last_temp(req, res) {
         usuarioModel.last_temp(idEmpresa)
             .then(
                 function (resultado) {
-                    console.log(`\nResultados encontrados: ${resultado.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+                    res.json(resultado)
                 }
             ).catch(
                 function (erro) {
