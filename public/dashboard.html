@@ -94,18 +94,27 @@
         widthVar[0] = Number(widthVar[0]) + (100 / qtdSetor.length)
       }
 
-      else if (((qtdSetor[c].temperatura_C >= 9 && qtdSetor[c].temperatura_C < 22) ||
+      /* else if (((qtdSetor[c].temperatura_C >= 9 && qtdSetor[c].temperatura_C < 22) ||
         (qtdSetor[c].temperatura_C > 25 && qtdSetor[c].temperatura_C <= 28))
         || ((qtdSetor[c].umidade_UR < 75 && qtdSetor[c].umidade_UR >= 65) ||
           (qtdSetor[c].umidade_UR < 87 && qtdSetor[c].umidade_UR >= 80))) {
 
         widthVar[1] = Number(widthVar[1]) + (100 / qtdSetor.length)
 
+      } */
+
+      else if (((qtdSetor[c].temperatura_C < 9) ||
+        (qtdSetor[c].temperatura_C > 28))
+        || ((qtdSetor[c].umidade_UR < 65) ||
+          (qtdSetor[c].umidade_UR > 87))) {
+
+        widthVar[2] = Number(widthVar[2]) + (100 / qtdSetor.length)
+
       }
 
       else {
 
-        widthVar[2] = Number(widthVar[2]) + (100 / qtdSetor.length)
+        widthVar[1] = Number(widthVar[1]) + (100 / qtdSetor.length)
 
       }
     }
@@ -158,14 +167,15 @@
 
 
 
-  /*  setInterval (function(){ */
+   setInterval (function(){
   last_temp()
 
-  /* },500)   */
+  },500)  
 
   function alertas() {
     var caixa_mensagem = document.getElementById('box_alertas');
-    /* var div_mensagem = document.createElement(div); */
+
+    caixa_mensagem.innerHTML = ``
 
     for (let c = 0; c < qtdSetor.length; c++) {
 
@@ -173,62 +183,160 @@
       if (qtdSetor[c].temperatura_C >= 9 && qtdSetor[c].temperatura_C < 22) {
         var div_titulo = document.createElement('div');
         var div_pai = document.createElement('div');
+        var div_mensagem = document.createElement('div');
 
         caixa_mensagem.appendChild(div_pai);
         div_pai.appendChild(div_titulo);
+        div_pai.appendChild(div_mensagem);
 
         /* div_pai.appendChild(div_mensagem); */
 
-        div_pai.className = 'mensagens'
-        div_titulo.className = 'titulo_mensagens'
+        div_pai.classList.add('mensagens', 'classe_alerta')
+        div_titulo.className = 'titulo_mensagem'
+        div_mensagem.className = 'conteudo_mensagem'
 
-        div_titulo.innerHTML = 'Alerta temp baixo'
+        div_titulo.innerHTML = 'Alerta'
+
+        div_mensagem.innerHTML = 'Temperatura reduzida no setor: ' + qtdSetor[c].idSetor
       }
 
       else if (qtdSetor[c].temperatura_C > 25 && qtdSetor[c].temperatura_C <= 28) {
         var div_titulo = document.createElement('div');
         var div_pai = document.createElement('div');
+        var div_mensagem = document.createElement('div');
 
         caixa_mensagem.appendChild(div_pai);
         div_pai.appendChild(div_titulo);
+        div_pai.appendChild(div_mensagem);
 
         /* div_pai.appendChild(div_mensagem); */
 
-        div_pai.className = 'mensagens'
-        div_titulo.className = 'titulo_mensagens'
+        div_pai.classList.add('mensagens', 'classe_alerta')
+        div_titulo.className = 'titulo_mensagem'
+        div_mensagem.className = 'conteudo_mensagem'
 
-        div_titulo.innerHTML = 'Alerta temp Alto'
+        div_titulo.innerHTML = 'Alerta'
+        div_mensagem.innerHTML = 'Temperatura elevada no setor: ' + qtdSetor[c].idSetor
       }
 
 
       if (qtdSetor[c].umidade_UR < 75 && qtdSetor[c].umidade_UR >= 65) {
         var div_titulo = document.createElement('div');
         var div_pai = document.createElement('div');
+        var div_mensagem = document.createElement('div');
 
         caixa_mensagem.appendChild(div_pai);
         div_pai.appendChild(div_titulo);
+        div_pai.appendChild(div_mensagem);
 
         /* div_pai.appendChild(div_mensagem); */
 
-        div_pai.className = 'mensagens'
-        div_titulo.className = 'titulo_mensagens'
+        div_pai.classList.add('mensagens', 'classe_alerta')
+        div_titulo.className = 'titulo_mensagem'
+        div_mensagem.className = 'conteudo_mensagem'
 
-        div_titulo.innerHTML = 'Alerta umi baixo'
+        div_titulo.innerHTML = 'Alerta'
+        div_mensagem.innerHTML = 'Umidade reduzida no setor: ' + qtdSetor[c].idSetor
       }
 
       else if (qtdSetor[c].umidade_UR < 87 && qtdSetor[c].umidade_UR >= 80) {
         var div_titulo = document.createElement('div');
         var div_pai = document.createElement('div');
+        var div_mensagem = document.createElement('div');
 
         caixa_mensagem.appendChild(div_pai);
         div_pai.appendChild(div_titulo);
+        div_pai.appendChild(div_mensagem);
 
         /* div_pai.appendChild(div_mensagem); */
 
-        div_pai.className = 'mensagens'
-        div_titulo.className = 'titulo_mensagens'
+        div_pai.classList.add('mensagens', 'classe_alerta')
+        div_titulo.className = 'titulo_mensagem'
+        div_mensagem.className = 'conteudo_mensagem'
 
-        div_titulo.innerHTML = 'Alerta umi Alto'
+        div_titulo.innerHTML = 'Alerta'
+        div_mensagem.innerHTML = 'Umidade elevada no setor: ' + qtdSetor[c].idSetor
+      }
+
+
+      // CRITICO
+
+      if (qtdSetor[c].temperatura_C > 28) {
+        var div_titulo = document.createElement('div');
+        var div_pai = document.createElement('div');
+        var div_mensagem = document.createElement('div');
+
+        caixa_mensagem.appendChild(div_pai);
+        div_pai.appendChild(div_titulo);
+        div_pai.appendChild(div_mensagem);
+
+        /* div_pai.appendChild(div_mensagem); */
+
+        div_pai.classList.add('mensagens', 'classe_critico')
+        div_titulo.className = 'titulo_mensagem'
+        div_mensagem.className = 'conteudo_mensagem_critico'
+
+        div_titulo.innerHTML = 'Crítico'
+
+        div_mensagem.innerHTML = 'Temperatura alta no setor: ' + qtdSetor[c].idSetor
+      }
+
+      else if (qtdSetor[c].temperatura_C < 9) {
+        var div_titulo = document.createElement('div');
+        var div_pai = document.createElement('div');
+        var div_mensagem = document.createElement('div');
+
+        caixa_mensagem.appendChild(div_pai);
+        div_pai.appendChild(div_titulo);
+        div_pai.appendChild(div_mensagem);
+
+        /* div_pai.appendChild(div_mensagem); */
+
+        div_pai.classList.add('mensagens', 'classe_critico')
+        div_titulo.className = 'titulo_mensagem'
+        div_mensagem.className = 'conteudo_mensagem_critico'
+
+        div_titulo.innerHTML = 'Crítico'
+        div_mensagem.innerHTML = 'Temperatura baixa no setor: ' + qtdSetor[c].idSetor
+      }
+
+
+      if (qtdSetor[c].umidade_UR > 87) {
+        var div_titulo = document.createElement('div');
+        var div_pai = document.createElement('div');
+        var div_mensagem = document.createElement('div');
+
+        caixa_mensagem.appendChild(div_pai);
+        div_pai.appendChild(div_titulo);
+        div_pai.appendChild(div_mensagem);
+
+        /* div_pai.appendChild(div_mensagem); */
+
+        div_pai.classList.add('mensagens', 'classe_critico')
+        div_titulo.className = 'titulo_mensagem'
+        div_mensagem.className = 'conteudo_mensagem_critico'
+
+        div_titulo.innerHTML = 'Crítico'
+        div_mensagem.innerHTML = 'Umidade alta no setor: ' + qtdSetor[c].idSetor
+      }
+
+      else if (qtdSetor[c].umidade_UR < 65) {
+        var div_titulo = document.createElement('div');
+        var div_pai = document.createElement('div');
+        var div_mensagem = document.createElement('div');
+
+        caixa_mensagem.appendChild(div_pai);
+        div_pai.appendChild(div_titulo);
+        div_pai.appendChild(div_mensagem);
+
+        /* div_pai.appendChild(div_mensagem); */
+
+        div_pai.classList.add('mensagens', 'classe_critico')
+        div_titulo.className = 'titulo_mensagem'
+        div_mensagem.className = 'conteudo_mensagem_critico'
+
+        div_titulo.innerHTML = 'Crítico'
+        div_mensagem.innerHTML = 'Umidade baixa no setor: ' + qtdSetor[c].idSetor
       }
     }
   }
