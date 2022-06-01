@@ -7,33 +7,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CacauFresh | Alertas</title>
     <link rel="stylesheet" href="css/style-alertas.css">
+    <link rel="stylesheet" href="./css/style-sidebar.css">
     <script src="js/alertas.js"></script>
 </head>
 <body onload="carrossel()">
 <header>
     <div class="header-top">
-        <span class="texto_ola"> Olá, (usuário) </span>
-    </div>
-    <div class="header-left">
+        <span class="texto_ola"> Olá, <span id="nome_usuario"></span> </span>
+      </div>
+      <div class="header-left">
         <ul class="lista_lateral">
-            <li>
-                <a href="#" class="link"> Home </a>
-            </li>
-            <br>
-            <li>
-                <a href="#" class="link"> Setores </a>
-            </li>
-            <br>
-            <li>
-                <a href="#" class="link"> Alertas </a>
-            </li>
-            <br>
-            <li>
-                <a href="#" class="link"> Fale conosco </a>
-            </li>
-        </ul>
-        <a href="#" class="botao_sair link">Sair</a>
-    </div>
+          <li>
+            <img onclick="go_home()" class="link" src="./imgs/icon_dash/home-icon-silhouette.png"/>
+            <span class="tooltip">Home</span>
+          </li>
+         
+          <li>
+            <img onclick="go_setor()" class="link" src="./imgs/icon_dash/pie-chart.png"/>
+            <span class="tooltip">Setores</span>
+          </li>
+         
+          <li>
+            <img onclick="go_alerta()" class="link" src="./imgs/icon_dash/danger.png"/>
+            <span class="tooltip">Alertas</span>
+          </li>
+        
+          <li>
+            <img onclick="go_suporte()" class="link" src="./imgs/icon_dash/apoio-suporte.png"/>
+            <span class="tooltip">Suporte</span>
+          </li>
+        
+          <li>
+            <img onclick="go_usuario()" class="link" src="./imgs/icon_dash/user.png"/>
+            <span class="tooltip">Novo Usuário</span>
+          </li>
+          
+          <li>
+            <img onclick="go_usuario()" class="link" src="./imgs/icon_dash/logout.png"/>
+            <span class="tooltip">Sair</span>
+          </li>
+          
+      </ul>
+      </div>
 </header>
         <div id="caixa_carrossel" >
             <img style="width:65vw; height:50vh; margin-left:-110%; margin-top:10%; border-radius:10px; transition: 1s;" src="./imgs/Carrosel_sugestoes/1.png" alt="">
