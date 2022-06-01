@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/dash-style.css">
+    <link rel="stylesheet" href="./css/style-setor.css">
+    <link rel="stylesheet" href="./css/style-sidebar.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/dash-main.js"></script>
     <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
@@ -17,30 +18,47 @@
     <!-- Header -->
     <div class="header-top">
         <span class="texto_ola"> Olá, <span id="nome_usuario"></span> </span>
-    </div>
-    <div class="header-left">
+      </div>
+      <div class="header-left">
         <ul class="lista_lateral">
-            <li>
-                <a href="#" class="link"> Home </a>
-            </li>
-            <br>
-            <li>
-                <a href="#" class="link"> Setores </a>
-            </li>
-            <br>
-            <li>
-                <a href="#" class="link"> Alertas </a>
-            </li>
-            <br>
-            <li>
-                <a href="#" class="link"> Fale conosco </a>
-            </li>
-        </ul>
-        <a href="#" class="botao_sair link">Sair</a>
-    </div>
+          <li>
+            <img onclick="go_home()" class="link" src="./imgs/icon_dash/home-icon-silhouette.png"/>
+            <span class="tooltip">Home</span>
+          </li>
+         
+          <li>
+            <img onclick="go_setor()" class="link" src="./imgs/icon_dash/pie-chart.png"/>
+            <span class="tooltip">Setores</span>
+          </li>
+         
+          <li>
+            <img onclick="go_alerta()" class="link" src="./imgs/icon_dash/danger.png"/>
+            <span class="tooltip">Alertas</span>
+          </li>
+        
+          <li>
+            <img onclick="go_suporte()" class="link" src="./imgs/icon_dash/apoio-suporte.png"/>
+            <span class="tooltip">Suporte</span>
+          </li>
+        
+          <li>
+            <img onclick="go_usuario()" class="link" src="./imgs/icon_dash/user.png"/>
+            <span class="tooltip">Novo Usuário</span>
+          </li>
+          
+          <li>
+            <img onclick="go_usuario()" class="link" src="./imgs/icon_dash/logout.png"/>
+            <span class="tooltip">Sair</span>
+          </li>
+          
+      </ul>
+      </div>
     <div class="container">
         <div class="graph">
             <canvas id="canvas_grafico"></canvas>
+        </div>
+        <div class="graph">
+            <canvas id="canvas_grafico2"></canvas>
         </div>
     </div>
 
@@ -123,19 +141,23 @@
 
         var dados = {
             labels: [],
-            datasets: [
-                {
+            datasets: [{
                     yAxisID: 'y-umidade',
                     label: 'Umidade',
-                    borderColor: 'black',
-                    backgroundColor: 'rgba(141, 255, 247, 0.8)',
+                    borderColor: 'rgba(8, 168, 168, 1)',
+                    backgroundColor: 'rgba(0, 255, 255, 0.41)',
                     data: []
-                },
-                {
+                }
+            ]
+        };
+
+        var dados2 = {
+            labels: [],
+            datasets: [{
                     yAxisID: 'y-temperatura',
                     label: 'Temperatura',
-                    borderColor: '#E94141',
-                    backgroundColor: 'rgba(255, 0, 0, 0.8)',
+                    borderColor: 'rgba(174, 0, 0, 1)',
+                    backgroundColor: 'rgba(255, 0, 0, 0.48)',
                     data: []
                 }
             ]
@@ -144,15 +166,45 @@
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
             dados.labels.push(registro.momento_grafico);
+            dados2.labels.push(registro.momento_grafico);
             dados.datasets[0].data.push(registro.umidade_UR);
-            dados.datasets[1].data.push(registro.temperatura_C);
+            dados2.datasets[0].data.push(registro.temperatura_C);
         }
 
         console.log(JSON.stringify(dados));
+        console.log(JSON.stringify(dados2));
 
         var ctx = canvas_grafico.getContext('2d');
         window.grafico_linha = Chart.Line(ctx, {
             data: dados,
+            options: {
+                responsive: true,
+                animation: { duration: 500 },
+                hoverMode: 'index',
+                stacked: false,
+                title: {
+                    display: false,
+                    text: 'Dados capturados'
+                },
+                scales: {
+                    yAxes: [{
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        id: 'y-umidade',
+                        ticks: {
+                            beginAtZero: true,
+                            max: 100,
+                            min: 0
+                        },
+                    }],
+                }
+            }
+        });
+
+        var ctx2 = canvas_grafico2.getContext('2d');
+        window.grafico_linha2 = Chart.Line(ctx2, {
+            data: dados2,
             options: {
                 responsive: true,
                 animation: { duration: 500 },
@@ -172,27 +224,13 @@
                             beginAtZero: true,
                             max: 100,
                             min: 0
-                        }
-                    }, {
-                        type: 'linear',
-                        display: false,
-                        position: 'right',
-                        id: 'y-umidade',
-                        ticks: {
-                            beginAtZero: true,
-                            max: 100,
-                            min: 0
-                        },
-
-                        gridLines: {
-                            drawOnChartArea: false,
                         },
                     }],
                 }
             }
         });
 
-        setTimeout(() => atualizarGrafico(fkSetor, dados), 2000);
+        setTimeout(() => atualizarGrafico(fkSetor, dados, dados2), 2000);
     }
 
 
@@ -201,7 +239,7 @@
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
-    function atualizarGrafico(fkSetor, dados) {
+    function atualizarGrafico(fkSetor, dados, dados2) {
 
         fetch(`/medidas/tempo-real/${fkSetor}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
@@ -209,28 +247,32 @@
 
                     console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
                     console.log(`Dados atuais do gráfico: ${dados}`);
+                    console.log(`Dados atuais do gráfico: ${dados2}`);
 
                     // tirando e colocando valores no gráfico
                     dados.labels.shift(); // apagar o primeiro
                     dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+                    dados2.labels.shift(); // apagar o primeiro
+                    dados2.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
 
                     dados.datasets[0].data.shift();  // apagar o primeiro de umidade
                     dados.datasets[0].data.push(novoRegistro[0].umidade_UR); // incluir uma nova medida de umidade
 
-                    dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-                    dados.datasets[1].data.push(novoRegistro[0].temperatura_C); // incluir uma nova medida de temperatura
+                    dados2.datasets[0].data.shift();  // apagar o primeiro de temperatura
+                    dados2.datasets[0].data.push(novoRegistro[0].temperatura_C); // incluir uma nova medida de temperatura
 
                     window.grafico_linha.update();
+                    window.grafico_linha2.update();
                     div_inp.style.display = 'flex'
                     img_loading.style.display = 'none'
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(fkSetor, dados), 2000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(fkSetor, dados, dados2), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(fkSetor, dados), 2000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(fkSetor, dados, dados2), 2000);
             }
         })
             .catch(function (error) {

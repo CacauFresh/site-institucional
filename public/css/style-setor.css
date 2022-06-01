@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@100&display=swap');
+
+body{
+    border: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow-y: hidden;
+}
+
+.header-top{
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 100px;
+    background-color: #EDF3F5;
+    height: 80px;
+    width: 95%;
+    margin-bottom: 50px;
+    margin-left: 5%;
+}
+.texto_ola{
+    color: black;
+    font-size: 30px;
+    margin-right: 20px;
+}
+
+
+@keyframes spinner {
+    to {transform: rotate(360deg);}
+  }
+   
+#img_loading:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 82%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #07d;
+    border-bottom-color: #07d;
+    animation: spinner .8s ease infinite;
+}
+
+.container{
+    width: 94%;
+    height: 340px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
+    margin-left: 5%;
+}
+
+.graph{
+    width: 94%;
+    height: 300px;
+}
+
+#div_inp{
+    width: 94%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#inp_valor{
+    width: 600px;
+    -webkit-appearance: none;
+    background: #ffffffcc;
+    border-radius: 5px;
+    height: 2px;
+    border: 2px solid black;
+}
+
+#inp_valor::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 50px;
+    width: 20px;
+    height: 20px; 
+    background: #06ffa4; 
+    cursor: pointer;
+}
+
+
+#div_inp #inp_valor:hover{
+    cursor: pointer;
+}
+
+#div_inp #demo{
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
