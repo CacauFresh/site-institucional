@@ -8,7 +8,9 @@
   <link rel="stylesheet" href="./css/dash-style.css">
   <link rel="stylesheet" href="./css/style-sidebar.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="shortcut icon" href="./imgs/favicon.ico" type="image/x-icon">
   <script src="js/dash-main.js"></script>
+  <script src="./js/funcoes.js"></script>
   <title>CacauFresh | Dashboard</title>
 </head>
 
@@ -45,7 +47,7 @@
       </li>
 
       <li>
-        <img onclick="go_usuario()" class="link" src="./imgs/icon_dash/logout.png" />
+        <img onclick="go_out()" class="link" src="./imgs/icon_dash/logout.png" />
         <span class="tooltip">Sair</span>
       </li>
 
@@ -62,10 +64,25 @@
         <div id="estavel"></div>
         <div id="alerta"></div>
         <div id="critico"></div>
+
+      </div>
+      <div class="legenda">
+        <div  class="box_legenda">
+          <div id="box_estavel" class="legenda_estavel"> </div>
+          <p>Estavel</p>
+        </div>
+        <div  class="box_legenda">
+          <div id="box_alerta" class="legenda_alerta"> </div>
+          <p>alerta</p>
+        </div>
+        <div  class="box_legenda">
+          <div id="box_critico" class="legenda_critico"> </div>
+          <p>Crítico</p>
+        </div>
+
       </div>
     </div>
     <div id="box_alertas" class="box_alertas">
-
     </div>
   </div>
 
@@ -76,46 +93,50 @@
 
 <script>
 
+  var contagem_estavel = 0
+  var contagem_alerta = 0
+  var contagem_critico = 0
 
+  function localizar_setor() {
+    window.location = 'setor.html';
+  }
+
+  nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
   var widthVar = [];
   var qtdSetor;
   function areas() {
+
+    contagem_estavel = 0
+    contagem_alerta = 0
+    contagem_critico = 0
 
     widthVar[0] = 0
     widthVar[1] = 0
     widthVar[2] = 0
 
     for (let c = 0; c < qtdSetor.length; c++) {
-
+      /* ESTAVEL */
       if ((qtdSetor[c].temperatura_C <= 25 && qtdSetor[c].temperatura_C >= 22)
         && (qtdSetor[c].umidade_UR >= 75 && qtdSetor[c].umidade_UR <= 80)) {
 
         widthVar[0] = Number(widthVar[0]) + (100 / qtdSetor.length)
+        contagem_estavel++
       }
-
-      /* else if (((qtdSetor[c].temperatura_C >= 9 && qtdSetor[c].temperatura_C < 22) ||
-        (qtdSetor[c].temperatura_C > 25 && qtdSetor[c].temperatura_C <= 28))
-        || ((qtdSetor[c].umidade_UR < 75 && qtdSetor[c].umidade_UR >= 65) ||
-          (qtdSetor[c].umidade_UR < 87 && qtdSetor[c].umidade_UR >= 80))) {
-
-        widthVar[1] = Number(widthVar[1]) + (100 / qtdSetor.length)
-
-      } */
-
+      /* CRITICO */
       else if (((qtdSetor[c].temperatura_C < 9) ||
         (qtdSetor[c].temperatura_C > 28))
         || ((qtdSetor[c].umidade_UR < 65) ||
           (qtdSetor[c].umidade_UR > 87))) {
 
         widthVar[2] = Number(widthVar[2]) + (100 / qtdSetor.length)
-
+        contagem_critico++
       }
-
+      /* ALERTA */
       else {
 
         widthVar[1] = Number(widthVar[1]) + (100 / qtdSetor.length)
-
+        contagem_alerta++
       }
     }
 
@@ -163,14 +184,18 @@
       console.log(`#ERRO: ${resposta}`);
 
     });
+
+    box_estavel.innerHTML = contagem_estavel
+    box_alerta.innerHTML = contagem_alerta
+    box_critico.innerHTML = contagem_critico
   }
 
 
 
-   setInterval (function(){
-  last_temp()
+  setInterval(function () {
+    last_temp()
 
-  },500)  
+  }, 500)
 
   function alertas() {
     var caixa_mensagem = document.getElementById('box_alertas');
@@ -184,6 +209,8 @@
         var div_titulo = document.createElement('div');
         var div_pai = document.createElement('div');
         var div_mensagem = document.createElement('div');
+
+        div_pai.onclick = localizar_setor
 
         caixa_mensagem.appendChild(div_pai);
         div_pai.appendChild(div_titulo);
@@ -205,6 +232,8 @@
         var div_pai = document.createElement('div');
         var div_mensagem = document.createElement('div');
 
+        div_pai.onclick = localizar_setor
+
         caixa_mensagem.appendChild(div_pai);
         div_pai.appendChild(div_titulo);
         div_pai.appendChild(div_mensagem);
@@ -225,11 +254,11 @@
         var div_pai = document.createElement('div');
         var div_mensagem = document.createElement('div');
 
+        div_pai.onclick = localizar_setor
+
         caixa_mensagem.appendChild(div_pai);
         div_pai.appendChild(div_titulo);
         div_pai.appendChild(div_mensagem);
-
-        /* div_pai.appendChild(div_mensagem); */
 
         div_pai.classList.add('mensagens', 'classe_alerta')
         div_titulo.className = 'titulo_mensagem'
@@ -239,10 +268,12 @@
         div_mensagem.innerHTML = 'Umidade reduzida no setor: ' + qtdSetor[c].idSetor
       }
 
-      else if (qtdSetor[c].umidade_UR < 87 && qtdSetor[c].umidade_UR >= 80) {
+      else if (qtdSetor[c].umidade_UR < 87 && qtdSetor[c].umidade_UR > 80) {
         var div_titulo = document.createElement('div');
         var div_pai = document.createElement('div');
         var div_mensagem = document.createElement('div');
+
+        div_pai.onclick = localizar_setor
 
         caixa_mensagem.appendChild(div_pai);
         div_pai.appendChild(div_titulo);
@@ -270,6 +301,9 @@
         div_pai.appendChild(div_titulo);
         div_pai.appendChild(div_mensagem);
 
+
+        div_pai.onclick = localizar_setor
+
         /* div_pai.appendChild(div_mensagem); */
 
         div_pai.classList.add('mensagens', 'classe_critico')
@@ -289,6 +323,8 @@
         caixa_mensagem.appendChild(div_pai);
         div_pai.appendChild(div_titulo);
         div_pai.appendChild(div_mensagem);
+
+        div_pai.onclick = localizar_setor
 
         /* div_pai.appendChild(div_mensagem); */
 
@@ -310,6 +346,8 @@
         div_pai.appendChild(div_titulo);
         div_pai.appendChild(div_mensagem);
 
+        div_pai.onclick = localizar_setor
+
         /* div_pai.appendChild(div_mensagem); */
 
         div_pai.classList.add('mensagens', 'classe_critico')
@@ -325,6 +363,8 @@
         var div_pai = document.createElement('div');
         var div_mensagem = document.createElement('div');
 
+        div_pai.onclick = localizar_setor
+
         caixa_mensagem.appendChild(div_pai);
         div_pai.appendChild(div_titulo);
         div_pai.appendChild(div_mensagem);
@@ -337,6 +377,7 @@
 
         div_titulo.innerHTML = 'Crítico'
         div_mensagem.innerHTML = 'Umidade baixa no setor: ' + qtdSetor[c].idSetor
+
       }
     }
   }

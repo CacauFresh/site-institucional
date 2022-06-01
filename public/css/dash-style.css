@@ -5,6 +5,7 @@ body{
     padding: 0;
     margin: 0;
     overflow: hidden;
+    background-image: radial-gradient(circle, #aef09a,#f6ffea,#a8f09a);
 }
 
 .header-top{
@@ -48,11 +49,12 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    justify-content: space-around;
 }
 
 .titulo {
     font-size: 13.0mm;
-    margin-bottom: 8vh;
+    margin-bottom: -2vh;
     color: #551515;
 }
 
@@ -101,6 +103,7 @@ body{
     height: 20%;
     width: 100%;
     border-bottom: 1px rgba(240, 240, 240, 0.808) solid;
+    cursor: pointer;
     
 }
 
@@ -135,4 +138,45 @@ body{
     font-size: 4.5mm;
     color: #fdfdfd;
     font-weight: 500
+}
+
+.legenda {
+    display: flex;
+    width: 100%;
+    height: 20vh;
+    justify-content: space-around;
+}
+
+.box_legenda {
+    display: flex;
+    align-items: center;
+    margin-top: -20%;
+}
+
+.box_legenda p {
+    margin-left: 0.5vw;
+    font-size: 5mm;
+}
+
+.box_legenda div {
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    border: 1px solid #515151;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 1px 1px 3px #ececec;
+    font-weight: bold;
+}
+.legenda_estavel {
+    background-color: rgb(159, 255, 14);
+}
+
+.legenda_alerta {
+    background-color: rgb(250, 246, 12);
+}
+
+.legenda_critico {
+    background-color: rgb(255, 0, 0);
 }
