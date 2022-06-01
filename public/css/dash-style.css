@@ -22,36 +22,7 @@ body{
     margin-right: 20px;
 }
 
-.header-left{
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(85, 21, 21);
-    border-bottom: 2px solid black;
-    height: 99.7vh;
-    width: 5%;
-    float: left;
-    color: white;
-    align-items: center;
-    justify-content: space-around;
-    font-size: 30px;
-}
 
-.lista_lateral{
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-decoration: none;
-    align-items: center !important;
-    width: 40%;
-    height: 500px;
-}
-.link{
-    display: flex;
-    width: 35px;
-}
 
 .botao_sair{
     justify-self: end;
@@ -74,18 +45,6 @@ body{
     width: 48vw;
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
-    align-items: flex-end;
-    justify-content: end;
-}
- .classe_texto{
-    display: flex;
-    border: 3px solid black;
-    width: 250px;
-    height: 230px;
-} 
-
-=======
     justify-content: center;
     align-items: center;
 }
@@ -130,4 +89,3 @@ body{
     height: 80vh;
     border: 2px red solid;
 }
->>>>>>> 2d279ce78bb6472699c038c32d02749aa4279843

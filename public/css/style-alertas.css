@@ -24,38 +24,6 @@ body{
     margin-right: 20px;
 }
 
-.header-left{
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(85, 21, 21);
-    border-bottom: 2px solid black;
-    width: 15%;
-    float: left;
-    color: white;
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    font-size: 30px;
-    height: 100vh;
-}
-
-.lista_lateral{
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin-left: 20px;
-    text-decoration: none;
-}
-.link{
-    text-decoration: none;
-    color: white;
-    /* font-family: Poppyns; */
-}
-
 .botao_sair{
     justify-self: end;
     margin-bottom: 30px;
