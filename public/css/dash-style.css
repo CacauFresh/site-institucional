@@ -91,7 +91,6 @@ body{
     border-radius: 18px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
 }
 
 .mensagens {

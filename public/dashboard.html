@@ -2,96 +2,72 @@
 <html lang="pt">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/dash-style.css">
-    <link rel="stylesheet" href="./css/style-sidebar.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/dash-main.js"></script>
-    <title>CacauFresh | Dashboard</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/dash-style.css">
+  <link rel="stylesheet" href="./css/style-sidebar.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/dash-main.js"></script>
+  <title>CacauFresh | Dashboard</title>
 </head>
 
 <body>
-    <!-- Header -->
-    <div class="header-top">
-        <span class="texto_ola"> Olá, <span id="nome_usuario"></span> </span>
+  <!-- Header -->
+  <div class="header-top">
+    <span class="texto_ola"> Olá, <span id="nome_usuario"></span> </span>
+  </div>
+  <div class="header-left">
+    <ul class="lista_lateral">
+      <li>
+        <img onclick="go_home()" class="link" src="./imgs/icon_dash/home-icon-silhouette.png" />
+        <span class="tooltip">Home</span>
+      </li>
+
+      <li>
+        <img onclick="go_setor()" class="link" src="./imgs/icon_dash/pie-chart.png" />
+        <span class="tooltip">Setores</span>
+      </li>
+
+      <li>
+        <img onclick="go_alerta()" class="link" src="./imgs/icon_dash/danger.png" />
+        <span class="tooltip">Alertas</span>
+      </li>
+
+      <li>
+        <img onclick="go_suporte()" class="link" src="./imgs/icon_dash/apoio-suporte.png" />
+        <span class="tooltip">Suporte</span>
+      </li>
+
+      <li>
+        <img onclick="go_usuario()" class="link" src="./imgs/icon_dash/user.png" />
+        <span class="tooltip">Novo Usuário</span>
+      </li>
+
+      <li>
+        <img onclick="go_usuario()" class="link" src="./imgs/icon_dash/logout.png" />
+        <span class="tooltip">Sair</span>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="box_conteudo">
+
+    <div class="box">
+      <div class="titulo">
+        Veja como estão seus setores
       </div>
-      <div class="header-left">
-        <ul class="lista_lateral">
-          <li>
-            <img onclick="go_home()" class="link" src="./imgs/icon_dash/home-icon-silhouette.png"/>
-            <span class="tooltip">Home</span>
-          </li>
-         
-          <li>
-            <img onclick="go_setor()" class="link" src="./imgs/icon_dash/pie-chart.png"/>
-            <span class="tooltip">Setores</span>
-          </li>
-         
-          <li>
-            <img onclick="go_alerta()" class="link" src="./imgs/icon_dash/danger.png"/>
-            <span class="tooltip">Alertas</span>
-          </li>
-        
-          <li>
-            <img onclick="go_suporte()" class="link" src="./imgs/icon_dash/apoio-suporte.png"/>
-            <span class="tooltip">Suporte</span>
-          </li>
-        
-          <li>
-            <img onclick="go_usuario()" class="link" src="./imgs/icon_dash/user.png"/>
-            <span class="tooltip">Novo Usuário</span>
-          </li>
-          
-          <li>
-            <img onclick="go_usuario()" class="link" src="./imgs/icon_dash/logout.png"/>
-            <span class="tooltip">Sair</span>
-          </li>
-          
-      </ul>
+      <div class="grafico">
+        <div id="estavel"></div>
+        <div id="alerta"></div>
+        <div id="critico"></div>
       </div>
+    </div>
+    <div id="box_alertas" class="box_alertas">
 
-      <div class="box_conteudo">
-          
-          <div class="box">
-              <div class="titulo">
-                  Veja como estão seus setores
-              </div>
-              <div class="grafico">
-                  <div id="estavel"></div>
-                  <div id="alerta"></div>
-                  <div id="critico"></div>
-              </div>
-          </div>
-          <div id="box_alertas" class="box_alertas">
-
-              <div id="mensagemUm" class="mensagens">
-                  <div class="titulo_mensagem">Alerta</div>
-              </div>
-
-              <div id="mensagemDois" class="mensagens">
-                <div class="titulo_mensagem">Critico</div>
-              </div>
-
-              <div id="mensagemTres" class="mensagens">
-                <div class="titulo_mensagem">Alerta</div>
-              </div>
-
-              <div id="mensagemQuatro" class="mensagens">
-                <div class="titulo_mensagem">Alerta</div>
-              </div>
-
-              <div id="mensagemCinco" class="mensagens">
-                <div class="titulo_mensagem">Critico</div>
-              </div>
-
-              <div id="mensagemSeis" class="mensagens">
-                <div class="titulo_mensagem">Alerta</div>
-              </div>
-
-          </div>
-      </div>
+    </div>
+  </div>
 
 </body>
 
@@ -102,9 +78,9 @@
 
 
 
-var widthVar = [];
-var qtdSetor;
-function areas() {
+  var widthVar = [];
+  var qtdSetor;
+  function areas() {
 
     widthVar[0] = 0
     widthVar[1] = 0
@@ -112,369 +88,149 @@ function areas() {
 
     for (let c = 0; c < qtdSetor.length; c++) {
 
-        if ((qtdSetor[c].temperatura_C <= 25 && qtdSetor[c].temperatura_C >= 22) 
-        && (qtdSetor[c].umidade_UR >= 75 && qtdSetor[c].umidade_UR <= 80 )) {
+      if ((qtdSetor[c].temperatura_C <= 25 && qtdSetor[c].temperatura_C >= 22)
+        && (qtdSetor[c].umidade_UR >= 75 && qtdSetor[c].umidade_UR <= 80)) {
 
-            widthVar[0] = Number(widthVar[0]) + (100/qtdSetor.length)
-        }
+        widthVar[0] = Number(widthVar[0]) + (100 / qtdSetor.length)
+      }
 
-        else if (((qtdSetor[c].temperatura_C >= 9 && qtdSetor[c].temperatura_C < 22) || 
-        (qtdSetor[c].temperatura_C > 25 && qtdSetor[c].temperatura_C <= 28)) 
-        || ((qtdSetor[c].umidade_UR < 75 && qtdSetor[c].umidade_UR >= 65) || 
-        (qtdSetor[c].umidade_UR < 87 && qtdSetor[c].umidade_UR >= 80) )) {
+      else if (((qtdSetor[c].temperatura_C >= 9 && qtdSetor[c].temperatura_C < 22) ||
+        (qtdSetor[c].temperatura_C > 25 && qtdSetor[c].temperatura_C <= 28))
+        || ((qtdSetor[c].umidade_UR < 75 && qtdSetor[c].umidade_UR >= 65) ||
+          (qtdSetor[c].umidade_UR < 87 && qtdSetor[c].umidade_UR >= 80))) {
 
-            widthVar[1] = Number(widthVar[1]) + (100/qtdSetor.length)
-            
-        }
+        widthVar[1] = Number(widthVar[1]) + (100 / qtdSetor.length)
 
-        else {
+      }
 
-            widthVar[2] = Number(widthVar[2]) + (100/qtdSetor.length)
-            
-        }
+      else {
+
+        widthVar[2] = Number(widthVar[2]) + (100 / qtdSetor.length)
+
+      }
     }
 
-    estavel.style.width = widthVar[0] + "%"
-    alerta.style.width = widthVar[1] + "%"
-    critico.style.width = widthVar[2] + "%"
-}
+    estavel.style.width = widthVar[0] + "%";
+    alerta.style.width = widthVar[1] + "%";
+    critico.style.width = widthVar[2] + "%";
+  }
 
-    
 
-function last_temp() {
-        var idEmpresa = sessionStorage.ID_EMPRESA;
 
-        fetch(`/usuarios/last_temp`, {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-               idEmpresaServer: idEmpresa 
+  function last_temp() {
+    var idEmpresa = sessionStorage.ID_EMPRESA;
 
-            })
-        }).then(function (resposta) {
+    fetch(`/usuarios/last_temp`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        idEmpresaServer: idEmpresa
 
-            console.log("resposta: ", resposta);
+      })
+    }).then(function (resposta) {
 
-            if (resposta.ok) {
-                
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    
-                    console.log(json[0].temperatura_C);
-                    qtdSetor = json;
-                    areas()
-                });
+      console.log("resposta: ", resposta);
 
-            } else {
-                throw ("Houve um erro ao capturar a ultima temperatura" + resposta.status);
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            
+      if (resposta.ok) {
+
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+
+          console.log(json[0].temperatura_C);
+          qtdSetor = json;
+          areas()
+          alertas()
         });
+
+      } else {
+        throw ("Houve um erro ao capturar a ultima temperatura" + resposta.status);
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+
+    });
+  }
+
+
+
+  /*  setInterval (function(){ */
+  last_temp()
+
+  /* },500)   */
+
+  function alertas() {
+    var caixa_mensagem = document.getElementById('box_alertas');
+    /* var div_mensagem = document.createElement(div); */
+
+    for (let c = 0; c < qtdSetor.length; c++) {
+
+
+      if (qtdSetor[c].temperatura_C >= 9 && qtdSetor[c].temperatura_C < 22) {
+        var div_titulo = document.createElement('div');
+        var div_pai = document.createElement('div');
+
+        caixa_mensagem.appendChild(div_pai);
+        div_pai.appendChild(div_titulo);
+
+        /* div_pai.appendChild(div_mensagem); */
+
+        div_pai.className = 'mensagens'
+        div_titulo.className = 'titulo_mensagens'
+
+        div_titulo.innerHTML = 'Alerta temp baixo'
+      }
+
+      else if (qtdSetor[c].temperatura_C > 25 && qtdSetor[c].temperatura_C <= 28) {
+        var div_titulo = document.createElement('div');
+        var div_pai = document.createElement('div');
+
+        caixa_mensagem.appendChild(div_pai);
+        div_pai.appendChild(div_titulo);
+
+        /* div_pai.appendChild(div_mensagem); */
+
+        div_pai.className = 'mensagens'
+        div_titulo.className = 'titulo_mensagens'
+
+        div_titulo.innerHTML = 'Alerta temp Alto'
+      }
+
+
+      if (qtdSetor[c].umidade_UR < 75 && qtdSetor[c].umidade_UR >= 65) {
+        var div_titulo = document.createElement('div');
+        var div_pai = document.createElement('div');
+
+        caixa_mensagem.appendChild(div_pai);
+        div_pai.appendChild(div_titulo);
+
+        /* div_pai.appendChild(div_mensagem); */
+
+        div_pai.className = 'mensagens'
+        div_titulo.className = 'titulo_mensagens'
+
+        div_titulo.innerHTML = 'Alerta umi baixo'
+      }
+
+      else if (qtdSetor[c].umidade_UR < 87 && qtdSetor[c].umidade_UR >= 80) {
+        var div_titulo = document.createElement('div');
+        var div_pai = document.createElement('div');
+
+        caixa_mensagem.appendChild(div_pai);
+        div_pai.appendChild(div_titulo);
+
+        /* div_pai.appendChild(div_mensagem); */
+
+        div_pai.className = 'mensagens'
+        div_titulo.className = 'titulo_mensagens'
+
+        div_titulo.innerHTML = 'Alerta umi Alto'
+      }
     }
-
-  
-
- setInterval (function(){
-     last_temp()
- },500)    
-
-    /*
-        function teste(){
-            var ino_seletor
-        }
-    
-    let proximaAtualizacao;
-    
-    function obterDadosGrafico(fkSetor) {
-            alterarTitulo(fkSetor)
-    
-            if (proximaAtualizacao != undefined) {
-                clearTimeout(proximaAtualizacao);
-            }
-    
-            fetch(`/medidas/ultimas/${fkSetor}`, { cache: 'no-store' }).then(function (response) {
-                if (response.ok) {
-                    response.json().then(function (resposta) {
-                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                        resposta.reverse();
-    
-                        plotarGrafico(resposta, fkSetor);
-                    });
-                } else {
-                    console.error('Nenhum dado encontrado ou erro na API');
-                }
-            })
-                .catch(function (error) {
-                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-                });
-        }
-    
-        // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-        // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-        // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-        function plotarGrafico(resposta, fkSetor) {
-            console.log('iniciando plotagem do gráfico...');
-    
-            var dados = {
-                labels: [],
-                datasets: [
-                    {
-                        yAxisID: 'y-umidade',
-                        label: 'Umidade',
-                        borderColor: '#32B9CD',
-                        backgroundColor: '#32b9cd8f',
-                        fill: true,
-                        data: []
-                    },
-                    {
-                        yAxisID: 'y-temperatura',
-                        label: 'Temperatura',
-                        borderColor: '#FFF',
-                        backgroundColor: '#32b9cd8f',
-                        fill: true,
-                        data: []
-                    }
-                ]
-            };
-    
-            for (i = 0; i < resposta.length; i++) {
-                var registro = resposta[i];
-                dados.labels.push(registro.momento_grafico);
-                dados.datasets[0].data.push(registro.umidade);
-                dados.datasets[1].data.push(registro.temperatura);
-            }
-    
-            console.log(JSON.stringify(dados));
-    
-            var ctx = canvas_grafico.getContext('2d');
-            window.grafico_linha = Chart.Line(ctx, {
-                data: dados,
-                options: {
-                    responsive: true,
-                    animation: { duration: 500 },
-                    hoverMode: 'index',
-                    stacked: false,
-                    title: {
-                        display: false,
-                        text: 'Dados capturados'
-                    },
-                    scales: {
-                        yAxes: [{
-                            type: 'linear',
-                            display: true,
-                            position: 'left',
-                            id: 'y-temperatura',
-                            ticks: {
-                                beginAtZero: true,
-                                max: 100,
-                                min: 0
-                            }
-                        }, {
-                            type: 'linear',
-                            display: false,
-                            position: 'right',
-                            id: 'y-umidade',
-                            ticks: {
-                                beginAtZero: true,
-                                max: 100,
-                                min: 0
-                            },
-    
-                            gridLines: {
-                                drawOnChartArea: false,
-                            },
-                        }],
-                    }
-                }
-            });
-    
-            setTimeout(() => atualizarGrafico(fkSetor, dados), 2000);
-        }
-    
-    
-        // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-        // buscando a última medida inserida em tabela contendo as capturas, 
-    
-        //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-        //     Para ajustar o "select", ajuste o comando sql em src/models
-        function atualizarGrafico(fkSetor, dados) {
-    
-            fetch(`/medidas/tempo-real/${fkSetor}`, { cache: 'no-store' }).then(function (response) {
-                if (response.ok) {
-                    response.json().then(function (novoRegistro) {
-    
-                        console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                        console.log(`Dados atuais do gráfico: ${dados}`);
-    
-                        // tirando e colocando valores no gráfico
-                        dados.labels.shift(); // apagar o primeiro
-                        dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-                        
-                        dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-                        dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
-                        
-                        dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-                        dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
-    
-                        window.grafico_linha.update();
-    
-                        // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                        proximaAtualizacao = setTimeout(() => atualizarGrafico(fkSetor, dados), 2000);
-                    });
-                } else {
-                    console.error('Nenhum dado encontrado ou erro na API');
-                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(fkSetor, dados), 2000);
-                }
-            })
-                .catch(function (error) {
-                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-                });
-    
-        }
-    
-    
-    
-     */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /* -- dht11Umidade -- */
-    /*   var contextoDht11Umidade = document.getElementById('myChart3').getContext('2d');
-      contextoDht11Umidade.canvas.width = 1000;
-      contextoDht11Umidade.canvas.height = 300;
-      var dht11Umidade = new Chart(
-          contextoDht11Umidade,
-          {
-              type: 'line',
-              data: {
-                  datasets: [{
-                      label: 'Umidade',
-                      type: 'line',
-                      borderColor: ['#45b3e7'],
-                      backgroundColor: ['#89cff0']
-                  }]
-              },
-              options: {
-                  scales: {
-                      xAxes: [{
-                          distribution: 'series',
-                          ticks: {
-                              beginAtZero: true
-                          }
-                      }],
-                      yAxes: [{
-                          scaleLabel: {
-                              display: true,
-                              labelString: 'Umidade'
-                          },
-                          ticks: {
-                              beginAtZero: true
-                          }
-                      }]
-                  },
-                  animation: {
-                      duration: 0
-                  }
-              }
-          }
-      ); */
-    /* -- dht11Temperatura -- */
-    /*  var contextoDht11Temperatura = document.getElementById('myChart4').getContext('2d');
-     contextoDht11Temperatura.canvas.width = 1000;
-     contextoDht11Temperatura.canvas.height = 300;
-     var dht11Temperatura = new Chart(
-         contextoDht11Temperatura,
-         {
-             type: 'line',
-             data: {
-                 datasets: [{
-                     label: "Temperatura",
-                     type: 'line',
-                     borderColor: ['#ff3232'],
-                     backgroundColor: ['#ff7f7f']
-                 }]
-             },
-             options: {
-                 scales: {
-                     xAxes: [{
-                         distribution: 'series',
-                         ticks: {
-                             beginAtZero: true
-                         }
-                     }],
-                     yAxes: [{
-                         scaleLabel: {
-                             display: true,
-                             labelString: 'Temperatura'
-                         },
-                         ticks: {
-                             beginAtZero: true
-                         }
-                     }]
-                 },
-                 animation: {
-                     duration: 0
-                 }
-             }
-         }
-     );
- 
-     var paginacao = {};
-     var tempo = {};
-     function obterDados(grafico, endpoint) {
-         var http = new XMLHttpRequest();
-         http.open('GET', 'http://localhost:3000/sensores/' + endpoint, false);
-         http.send(null);
-         var valores = JSON.parse(http.responseText);
-         if (paginacao[endpoint] == null) {
-             paginacao[endpoint] = 0;
-         }
-         if (tempo[endpoint] == null) {
-             tempo[endpoint] = 0;
-         }
-         // Exibir à partir do último elemento exibido anteriormente
-         var ultimaPaginacao = paginacao[endpoint];
-         paginacao[endpoint] = valores.length;
-         var valores = valores.slice(ultimaPaginacao);
-         valores.forEach((valor) => {
-             //Máximo de 60 itens exibidos no gráfico
-             if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
-                 grafico.data.labels.shift();
-                 grafico.data.datasets[0].data.shift();
-             }
- 
-             grafico.data.labels.push(tempo[endpoint]++);
-             grafico.data.datasets[0].data.push(parseFloat(valor));
-             grafico.update();
-         })
-     }
- 
-     setInterval(() => {
-         obterDados(myChart3, 'dht11/umidade');
-         obterDados(myChart4, 'dht11/temperatura');
-     }, 1000); */
+  }
 
 </script>
