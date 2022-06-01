@@ -5,6 +5,7 @@ body{
     border: 0;
     padding: 0;
     margin: 0;
+    background-image: radial-gradient(circle, #f09a9a,#ffeaea,#f09a9a);
 }
 
 .header-top{
@@ -45,7 +46,8 @@ body{
     transition: 1s ease;
     background-image: url(../imgs/Carrosel_sugestoes/1.png);
     background-size: cover;
-    border-radius: 10px;
+    border-radius: 20px;
+    border: 2px #f09a9ad2 solid;
 }
 
 img{
