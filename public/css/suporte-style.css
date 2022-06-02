@@ -5,6 +5,7 @@ body{
     padding: 0;
     margin: 0;
     background-image: radial-gradient(circle, #aef09a,#f6ffea,#a8f09a);
+    overflow: hidden;
 }
 
 .header-top{
@@ -49,7 +50,10 @@ text-align: center;
 justify-content: space-evenly;
 flex-direction: column;
 border-radius: 20px;
-font-size: 1.1rem;
 font-family: 'Poppins', sans-serif;
 box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+h1{
+font-size: 1.6rem;
 }

@@ -20,41 +20,41 @@
     <!-- Header -->
     <div class="header-top">
         <span class="texto_ola"> Olá, <span id="nome_usuario"></span> </span>
-      </div>
-      <div class="header-left">
+    </div>
+    <div class="header-left">
         <ul class="lista_lateral">
-          <li>
-            <img onclick="go_home()" class="link" src="./imgs/icon_dash/home-icon-silhouette.png"/>
-            <span class="tooltip">Home</span>
-          </li>
-         
-          <li>
-            <img onclick="go_setor()" class="link" src="./imgs/icon_dash/pie-chart.png"/>
-            <span class="tooltip">Setores</span>
-          </li>
-         
-          <li>
-            <img onclick="go_alerta()" class="link" src="./imgs/icon_dash/danger.png"/>
-            <span class="tooltip">Alertas</span>
-          </li>
-        
-          <li>
-            <img onclick="go_suporte()" class="link" src="./imgs/icon_dash/apoio-suporte.png"/>
-            <span class="tooltip">Suporte</span>
-          </li>
-        
-          <li>
-            <img onclick="go_usuario()" class="link" src="./imgs/icon_dash/user.png"/>
-            <span class="tooltip">Novo Usuário</span>
-          </li>
-          
-          <li>
-            <img onclick="go_out()" class="link" src="./imgs/icon_dash/logout.png"/>
-            <span class="tooltip">Sair</span>
-          </li>
-          
-      </ul>
-      </div>
+            <li>
+                <img onclick="go_home()" class="link" src="./imgs/icon_dash/home-icon-silhouette.png" />
+                <span class="tooltip">Home</span>
+            </li>
+
+            <li>
+                <img onclick="go_setor()" class="link" src="./imgs/icon_dash/pie-chart.png" />
+                <span class="tooltip">Setores</span>
+            </li>
+
+            <li>
+                <img onclick="go_alerta()" class="link" src="./imgs/icon_dash/danger.png" />
+                <span class="tooltip">Alertas</span>
+            </li>
+
+            <li>
+                <img onclick="go_suporte()" class="link" src="./imgs/icon_dash/apoio-suporte.png" />
+                <span class="tooltip">Suporte</span>
+            </li>
+
+            <li>
+                <img onclick="go_usuario()" class="link" src="./imgs/icon_dash/user.png" />
+                <span class="tooltip">Novo Usuário</span>
+            </li>
+
+            <li>
+                <img onclick="go_out()" class="link" src="./imgs/icon_dash/logout.png" />
+                <span class="tooltip">Sair</span>
+            </li>
+
+        </ul>
+    </div>
     <div class="container">
         <div class="graph">
             <canvas id="canvas_grafico"></canvas>
@@ -67,7 +67,7 @@
     <div id="div_loading">
         <div id="div_inp">
             <input onchange="mouseMove()" type="range" min="1" max="4" value="0" id="inp_valor">
-        
+
             <input id="demo" onchange="loading()">
         </div>
         <div id="img_loading" style="display: none;"></div>
@@ -81,6 +81,9 @@
 </html>
 
 <script>
+
+    inp_valor.value = sessionStorage.ID_GRAFICO;
+    demo.value = sessionStorage.ID_GRAFICO;
 
     let criacao;
     let proximaAtualizacao;
@@ -97,13 +100,15 @@
     function mouseMove() {
         var valor_input = Number(input.value)
         obterDadosGrafico(valor_input);
+        sessionStorage.ID_GRAFICO = inp_valor.value
         div_inp.style.display = 'none'
         img_loading.style.display = 'flex'
     }
 
     function loading() {
         var num = demo.value;
-        input.value = num
+        input.value = num;
+        sessionStorage.ID_GRAFICO = demo.value;
         clearTimeout(proximaAtualizacao);
         obterDadosGrafico(num)
         div_inp.style.display = 'none'
@@ -144,24 +149,24 @@
         var dados = {
             labels: [],
             datasets: [{
-                    yAxisID: 'y-umidade',
-                    label: 'Umidade',
-                    borderColor: 'rgba(8, 168, 168, 1)',
-                    backgroundColor: 'rgba(0, 255, 255, 0.41)',
-                    data: []
-                }
+                yAxisID: 'y-umidade',
+                label: 'Umidade',
+                borderColor: 'rgba(8, 168, 168, 1)',
+                backgroundColor: 'rgba(0, 255, 255, 0.41)',
+                data: []
+            }
             ]
         };
 
         var dados2 = {
             labels: [],
             datasets: [{
-                    yAxisID: 'y-temperatura',
-                    label: 'Temperatura',
-                    borderColor: 'rgba(174, 0, 0, 1)',
-                    backgroundColor: 'rgba(255, 0, 0, 0.48)',
-                    data: []
-                }
+                yAxisID: 'y-temperatura',
+                label: 'Temperatura',
+                borderColor: 'rgba(174, 0, 0, 1)',
+                backgroundColor: 'rgba(255, 0, 0, 0.48)',
+                data: []
+            }
             ]
         };
 
@@ -284,35 +289,35 @@
     }
 
     function getSetor() {
-    var idEmpresa = sessionStorage.ID_EMPRESA;
+        var idEmpresa = sessionStorage.ID_EMPRESA;
 
-    var corpo = {
-        idEmpresa: idEmpresa
-    }
-    fetch("/avisos/getSetor", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(corpo)
-    }).then(function (resultado) {
-
-        console.log("ESTOU NO THEN DO getSetor()!")
-        if (resultado.ok) {
-            resultado.json().then(function (resultado) {
-                console.log("Dados recebidos do Perfil: ", JSON.stringify(resultado));
-                console.log(resultado[0].qtdSensor)
-                inp_valor.setAttribute("max", resultado[0].qtdSensor)
-            });
-        } else {
-            console.log("Dados recebidos: ", JSON.stringify(resultado));
+        var corpo = {
+            idEmpresa: idEmpresa
         }
-    }).catch(function (erro) {
-        console.log(erro);
-    })
-}
+        fetch("/avisos/getSetor", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(corpo)
+        }).then(function (resultado) {
 
-getSetor();
-nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+            console.log("ESTOU NO THEN DO getSetor()!")
+            if (resultado.ok) {
+                resultado.json().then(function (resultado) {
+                    console.log("Dados recebidos do Perfil: ", JSON.stringify(resultado));
+                    console.log(resultado[0].qtdSensor)
+                    inp_valor.setAttribute("max", resultado[0].qtdSensor)
+                });
+            } else {
+                console.log("Dados recebidos: ", JSON.stringify(resultado));
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+    }
+
+    getSetor();
+    nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
 </script>

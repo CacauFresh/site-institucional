@@ -97,7 +97,8 @@
   var contagem_alerta = 0
   var contagem_critico = 0
 
-  function localizar_setor() {
+  function localizar_setor(setor) {
+    sessionStorage.ID_GRAFICO = setor
     window.location = 'setor.html';
   }
 
@@ -210,7 +211,9 @@
         var div_pai = document.createElement('div');
         var div_mensagem = document.createElement('div');
 
-        div_pai.onclick = localizar_setor
+        div_pai.onclick = function(){
+          localizar_setor(qtdSetor[c].idSetor)
+        };
 
         caixa_mensagem.appendChild(div_pai);
         div_pai.appendChild(div_titulo);
@@ -232,7 +235,9 @@
         var div_pai = document.createElement('div');
         var div_mensagem = document.createElement('div');
 
-        div_pai.onclick = localizar_setor
+        div_pai.onclick = function(){
+          localizar_setor(qtdSetor[c].idSetor)
+        };
 
         caixa_mensagem.appendChild(div_pai);
         div_pai.appendChild(div_titulo);
@@ -254,7 +259,9 @@
         var div_pai = document.createElement('div');
         var div_mensagem = document.createElement('div');
 
-        div_pai.onclick = localizar_setor
+        div_pai.onclick = function(){
+          localizar_setor(qtdSetor[c].idSetor)
+        };
 
         caixa_mensagem.appendChild(div_pai);
         div_pai.appendChild(div_titulo);
@@ -273,7 +280,9 @@
         var div_pai = document.createElement('div');
         var div_mensagem = document.createElement('div');
 
-        div_pai.onclick = localizar_setor
+        div_pai.onclick = function(){
+          localizar_setor(qtdSetor[c].idSetor)
+        };
 
         caixa_mensagem.appendChild(div_pai);
         div_pai.appendChild(div_titulo);
@@ -302,7 +311,9 @@
         div_pai.appendChild(div_mensagem);
 
 
-        div_pai.onclick = localizar_setor
+        div_pai.onclick = function(){
+          localizar_setor(qtdSetor[c].idSetor)
+        };
 
         /* div_pai.appendChild(div_mensagem); */
 
@@ -324,7 +335,9 @@
         div_pai.appendChild(div_titulo);
         div_pai.appendChild(div_mensagem);
 
-        div_pai.onclick = localizar_setor
+        div_pai.onclick = function(){
+          localizar_setor(qtdSetor[c].idSetor)
+        };
 
         /* div_pai.appendChild(div_mensagem); */
 
@@ -346,7 +359,9 @@
         div_pai.appendChild(div_titulo);
         div_pai.appendChild(div_mensagem);
 
-        div_pai.onclick = localizar_setor
+        div_pai.onclick = function(){
+          localizar_setor(qtdSetor[c].idSetor)
+        };
 
         /* div_pai.appendChild(div_mensagem); */
 
@@ -363,7 +378,9 @@
         var div_pai = document.createElement('div');
         var div_mensagem = document.createElement('div');
 
-        div_pai.onclick = localizar_setor
+        div_pai.onclick = function(){
+          localizar_setor(qtdSetor[c].idSetor)
+        };
 
         caixa_mensagem.appendChild(div_pai);
         div_pai.appendChild(div_titulo);
